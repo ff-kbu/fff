@@ -17,7 +17,9 @@ Für die Entwicklung ist es sinnvoll, den Lübecker upstram lokal nach dem clone
 
 ## Build
 `scripts/feeds update -a`
+
 `scripts/feeds install -a`
+
 `make` 
 
 
