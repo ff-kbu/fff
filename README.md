@@ -5,9 +5,11 @@ Dieses Repository enthält die Freifunk-Firmware, so wie sie im KBU-Netz verwend
 Im Gegensatz zu lff bezieht es sich auf den Upstream, so wie er Stand 2012-12-18 in Lübeck vorliegt. (lff bezieht sich auf den Stand vor Neoraiders refactoring).
 
 ## Branches
-Die Branches im Upstream werden im gitweb aufgeführt: https://git.metameute.de/lff/firmware/ . In diesem Repository sind die Branches 
-+ v0.3.x (TP 741nd) und 
-+ v0.3.x-tl-wr1043nd (TP Link 1043nd) verfügbar.
+Die Branches im Upstream werden im gitweb aufgeführt: https://git.metameute.de/lff/firmware/ . In diesem Repository sind verfügbar:
++ master (README.md)
++ v0.3.x (TP 741nd)  
++ v0.3.x-tl-wr1043nd (TP Link 1043nd).
+
 Andere Branches im Upstream sind nicht für die Verwendung für Freifunk-KBU angepasst (d.h. es gibt hierzu keine Kopie mit patches für abweichende Konfigurationen).
 
 ## Checkout / Clone
