@@ -16,7 +16,9 @@ Für die Entwicklung ist es sinnvoll, den Lübecker upstram lokal nach dem clone
 
 
 ## Build
-Zum Build der Firmware muss `make` im passenden Branch aufgerufen werden.
+` scripts/feeds update -a
+scripts/feeds install -a
+make` 
 
 
 ## Hinweis
