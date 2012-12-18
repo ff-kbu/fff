@@ -1,9 +1,6 @@
 ## Inhalt
 Dieses Repository enthält die Freifunk-Firmware, so wie sie im KBU-Netz verwendet wird. Es ist wie lff ein Fork der Lübecker Firmware.
 
-## Hinweis
-Im Gegensatz zu lff bezieht es sich auf den Upstream, so wie er Stand 2012-12-18 in Lübeck vorliegt. (lff bezieht sich auf den Stand vor Neoraiders refactoring).
-
 ## Branches
 Die Branches im Upstream werden im gitweb aufgeführt: https://git.metameute.de/lff/firmware/ . In diesem Repository sind verfügbar:
 + master (README.md)
@@ -21,4 +18,7 @@ Für die Entwicklung ist es sinnvoll, den Lübecker upstram lokal nach dem clone
 ## Build
 Zum Build der Firmware muss make im passenden Branch aufgerufen werden.
 
+
+## Hinweis
+Im Gegensatz zu lff bezieht sich dieses Repository auf die Upstream-Struktur, so wie sie Stand 2012-12-18 in Lübeck vorliegt. (lff bezieht sich auf den Stand vor Neoraiders refactoring).
 
