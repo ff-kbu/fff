@@ -10,13 +10,13 @@ Die Branches im Upstream werden im gitweb aufgeführt: https://git.metameute.de/
 Andere Branches im Upstream sind nicht für die Verwendung für Freifunk-KBU angepasst (d.h. es gibt hierzu keine Kopie mit patches für abweichende Konfigurationen).
 
 ## Checkout / Clone
-Für einen build, reicht ein checkout des Repositories aus. Hierzu muss ein passender branch gewählt werden. Der Master-Branch enthält ausschließlich diese Readme-Datei.
+Für einen build reicht ein checkout des Repositories aus. Hierzu muss ein passender branch gewählt werden.
 Für die Entwicklung ist es sinnvoll, den Lübecker upstram lokal nach dem clone hinzufügen:
 `git remote add upstream https://git.metameute.de/lff/firmware/`
 
 
 ## Build
-Zum Build der Firmware muss make im passenden Branch aufgerufen werden.
+Zum Build der Firmware muss `make` im passenden Branch aufgerufen werden.
 
 
 ## Hinweis
