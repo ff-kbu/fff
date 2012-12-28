@@ -1,0 +1,12 @@
+#!/bin/sh
+
+UPLOAD_URL=$1
+MAC=${2//:/}
+KEY=`/usr/sbin/fastd --machine-readable --show-key -c /tmp/fastd/secret.mesh_vpn.conf`
+CURLC=`which curl`
+
+while [ 1 = 1 ]
+do
+        $CURLC -k -F "nodeid=${MAC}" -F "key=${KEY}" $UPLOAD_URL  && break
+	sleep 30
+done
