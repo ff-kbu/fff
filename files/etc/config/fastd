@@ -1,7 +1,7 @@
 package fastd
 
 config fastd mesh_vpn
-	option enabled 0
+	option enabled 1
 	
 	list config '/lib/freifunk/mesh-vpn/fastd.conf'
 	list config_peer_dir '/etc/fastd/mesh-vpn/peers'
