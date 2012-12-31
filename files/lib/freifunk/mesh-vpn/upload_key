@@ -7,6 +7,6 @@ CURLC=`which curl`
 
 while [ 1 = 1 ]
 do
-        $CURLC -k -F "nodeid=${MAC}" -F "key=${KEY}" $UPLOAD_URL  && break
+        $CURLC -s -k -F "nodeid=${MAC}" -F "key=${KEY}" $UPLOAD_URL  && break
 	sleep 30
 done
