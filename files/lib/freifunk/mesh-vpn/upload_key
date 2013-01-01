@@ -7,6 +7,6 @@ WGETC=`which wget`
 
 while [ 1 = 1 ]
 do
-        WGETC -q --post-data "nodeid=${MAC}&key=${KEY}" $UPLOAD_URL -O - && break
+        $WGETC -q --post-data "nodeid=${MAC}&key=${KEY}" $UPLOAD_URL -O - && break
 	sleep 30
 done
