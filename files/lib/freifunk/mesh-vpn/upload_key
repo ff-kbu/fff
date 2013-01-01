@@ -3,10 +3,10 @@
 UPLOAD_URL=$1
 MAC=${2//:/}
 KEY=`/usr/sbin/fastd --machine-readable --show-key -c /tmp/fastd/secret.mesh_vpn.conf`
-CURLC=`which curl`
+WGETC=`which wget`
 
 while [ 1 = 1 ]
 do
-        $CURLC -s -k -F "nodeid=${MAC}" -F "key=${KEY}" $UPLOAD_URL  && break
+        WGETC -q --post-data "nodeid=${MAC}&key=${KEY}" $UPLOAD_URL -O - && break
 	sleep 30
 done
