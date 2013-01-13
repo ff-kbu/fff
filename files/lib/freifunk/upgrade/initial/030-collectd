@@ -8,7 +8,7 @@ cat > /etc/collectd <<EOF
 Hostname   "$ipv6_linklocal"
 BaseDir     "/var/lib/collectd"
 PIDFile     "/var/run/collectd.pid"
-Interval    120
+Interval    10
 ReadThreads 2
 
 LoadPlugin network
