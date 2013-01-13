@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# This script creates collectd.conf after flashing.
+
+ipv6_linklocal=`ifconfig br-freifunk | grep -oe 'fe80:[a-f0-9:]*'`
+
+cat > /etc/collectd <<EOF
+Hostname   "$ipv6_linklocal"
+BaseDir     "/var/lib/collectd"
+PIDFile     "/var/run/collectd.pid"
+Interval    120
+ReadThreads 2
+
+LoadPlugin network
+LoadPlugin interface
+
+<Plugin interface>
+        Interface "br-wan"
+        IgnoreSelected false
+</Plugin>
+
+<Plugin network>
+        Server "collectd.kbu.freifunk.net" "25827"
+</Plugin>
+EOF
