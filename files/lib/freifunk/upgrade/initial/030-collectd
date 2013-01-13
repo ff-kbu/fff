@@ -13,6 +13,7 @@ ReadThreads 2
 
 LoadPlugin network
 LoadPlugin interface
+LoadPlugin netlink
 
 <Plugin interface>
         Interface "br-wan"
