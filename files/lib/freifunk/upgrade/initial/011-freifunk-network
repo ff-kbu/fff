@@ -1,6 +1,7 @@
 #!/bin/sh
 
 . /lib/ar71xx.sh
+. /lib/freifunk/lib_node.sh
 
 local lan_ifname="$(uci get network.lan.ifname)"
 local board="$(ar71xx_board_name)"
@@ -24,17 +25,6 @@ set network.mesh='interface'
 set network.mesh.proto='none'
 set network.mesh.mtu='1528'
 EOF
-
-get_main_address() {
-    case "$board" in
-	tl-wdr3600|tl-wdr4300)
-	    uci get wireless.radio1.macaddr
-	    ;;
-	*)
-	    uci get wireless.radio0.macaddr
-	    ;;
-    esac
-}
 
 case "$board" in
 tl-wr1043nd|\
