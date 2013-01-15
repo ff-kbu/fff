@@ -8,9 +8,10 @@
 
 # collectd uses node_id.nodes.kbu.freifunk.net as hostname
 # nodes.kbu.freifunk.net does not exists at this time (2012-01-15). 
-#However, if needed, it can be set up using register / mysql- or ldap-based bind9 easily
+# However, if needed, it can be set up using register / mysql- or ldap-based bind9 easily - or -
+# mdns if avahi is configured to resove nodes.kbu.freifunk.net and not .local
 
-local hostname="$(node_id).nodes.kbu.freifunk.net" 
+local hostname="$(get_node_id).nodes.kbu.freifunk.net" 
 
 cat > /etc/collectd <<EOF
 Hostname   "${hostname}"
