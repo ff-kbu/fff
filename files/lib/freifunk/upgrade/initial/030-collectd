@@ -1,11 +1,19 @@
 #!/bin/sh
 
+#Include lib_node.sh for accessing node_id
+. /lib/freifunk/lib_node.sh
+
+
 # This script creates collectd.conf after flashing.
 
-ipv6_linklocal=`ifconfig br-freifunk | grep -oe 'fe80:[a-f0-9:]*'`
+# collectd uses node_id.nodes.kbu.freifunk.net as hostname
+# nodes.kbu.freifunk.net does not exists at this time (2012-01-15). 
+#However, if needed, it can be set up using register / mysql- or ldap-based bind9 easily
+
+local hostname="$(node_id).nodes.kbu.freifunk.net" 
 
 cat > /etc/collectd <<EOF
-Hostname   "$ipv6_linklocal"
+Hostname   "${hostname}"
 BaseDir     "/var/lib/collectd"
 PIDFile     "/var/run/collectd.pid"
 Interval    10
