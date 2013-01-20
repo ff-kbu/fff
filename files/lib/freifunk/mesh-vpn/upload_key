@@ -4,9 +4,10 @@ UPLOAD_URL=$1
 MAC=${2//:/}
 KEY=`/usr/sbin/fastd --machine-readable --show-key -c /tmp/fastd/secret.mesh_vpn.conf`
 WGETC=`which wget`
+VERSION=$(cat /etc/freifunk_version)
 
 while [ 1 = 1 ]
 do
-        $WGETC -q --post-data "nodeid=${MAC}&key=${KEY}" $UPLOAD_URL -O - && break
+        $WGETC -q --post-data "nodeid=${MAC}&key=${KEY}&fw_version=${VERSION}" $UPLOAD_URL -O - && break
 	sleep 30
 done
