@@ -22,10 +22,9 @@ ReadThreads 2
 
 LoadPlugin network
 LoadPlugin interface
-LoadPlugin netlink
 
 <Plugin interface>
-        Interface "br-wan"
+        Interface "br-wan wlan0-1"
         IgnoreSelected false
 </Plugin>
 
