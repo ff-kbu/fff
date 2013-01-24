@@ -24,7 +24,8 @@ LoadPlugin network
 LoadPlugin interface
 
 <Plugin interface>
-        Interface "br-wan wlan0-1"
+        Interface "br-wan"
+        Interface "wlan0-1"
         IgnoreSelected false
 </Plugin>
 
