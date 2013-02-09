@@ -4,6 +4,9 @@
 . /lib/freifunk/lib_node.sh
 
 local lan_ifname="$(uci get network.lan.ifname)"
+local wan_ifname="$(uci get network.wan.ifname)"
+
+
 local board="$(ar71xx_board_name)"
 
 uci -q batch <<EOF
@@ -24,6 +27,11 @@ set network.freifunk.accept_ra='1'
 set network.mesh='interface'
 set network.mesh.proto='none'
 set network.mesh.mtu='1528'
+
+set network.freifunk.ifname='bat0'
+set network.wan.ifname='$lan_ifname $wan_ifname'
+
+
 EOF
 
 case "$board" in
