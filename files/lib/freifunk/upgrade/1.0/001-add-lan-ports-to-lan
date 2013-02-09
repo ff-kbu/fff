@@ -1,0 +1,12 @@
+#!/bin/sh
+
+. /lib/ar71xx.sh
+. /lib/freifunk/lib_node.sh
+
+local lan_ifname="$(uci get network.lan.ifname)"
+local wan_ifname="$(uci get network.wan.ifname)"
+
+uci -q batch <<EOF
+set network.wan.ifname='$lan_ifname $wan_ifname'
+EOF
+uci commit network
