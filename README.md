@@ -4,10 +4,10 @@ Dieses Repository enthält die Freifunk-Firmware, so wie sie im KBU-Netz verwend
 ## Branches
 Die Branches im Upstream werden im gitweb aufgeführt: https://git.metameute.de/lff/firmware/ . In diesem Repository sind verfügbar:
 + master (README.md)
-+ v0.3 (TP Link 741nd)  
-+ v0.3-tl-wr1043nd (TP Link 1043nd).
-
++ v0.3-generic
+ 
 Andere Branches im Upstream sind nicht für die Verwendung für Freifunk-KBU angepasst (d.h. es gibt hierzu keine Kopie mit patches für abweichende Konfigurationen).
+Der Generic-Branch enthält alle AR71xx-basierten Gerättypen.
 
 ## Checkout / Clone
 Für einen build reicht ein checkout des Repositories aus. Hierzu muss ein passender branch gewählt werden.
