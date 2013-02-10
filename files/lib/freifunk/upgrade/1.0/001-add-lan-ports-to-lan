@@ -8,5 +8,10 @@ local wan_ifname="$(uci get network.wan.ifname)"
 
 uci -q batch <<EOF
 set network.wan.ifname='$lan_ifname $wan_ifname'
+add network switch_vlan
+set network.@switch_vlan[-1].vid='23'
+set network.@switch_vlan[-1].vlan='23'
+network.@switch_vlan[-1].device='eth0'
+network.freifunk.ifname='bat0 eth0.23'
 EOF
 uci commit network
