@@ -15,10 +15,10 @@ uci -q batch <<EOF
 delete network.lan
 
 add network switch_vlan
-set network.@switch_vlan[-1].vid='4'
-set network.@switch_vlan[-1].vlan='4'
+set network.@switch_vlan[-1].vid='2'
+set network.@switch_vlan[-1].vlan='2'
 network.@switch_vlan[-1].device='eth0'
-network.@switch_vlan[-1].ports='${cpu_port}t'
+
 
 
 set network.wan.type='bridge'
