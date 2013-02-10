@@ -5,6 +5,10 @@
 
 local lan_ifname="$(uci get network.lan.ifname)"
 local wan_ifname="$(uci get network.wan.ifname)"
+local board="$(ar71xx_board_name)"
+port_info=$(swconfig dev eth0 help | grep -oe "cpu @ [0-9]")
+cpu_port=${port_info//cpu @/}
+
 
 uci -q batch <<EOF
 set network.wan.ifname='$lan_ifname $wan_ifname'
@@ -13,5 +17,6 @@ set network.@switch_vlan[-1].vid='23'
 set network.@switch_vlan[-1].vlan='23'
 network.@switch_vlan[-1].device='eth0'
 network.freifunk.ifname='bat0 eth0.23'
+network.@switch_vlan[-1].ports='${cpu_port}t'
 EOF
 uci commit network
