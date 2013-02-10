@@ -15,8 +15,7 @@ set network.wan.ifname='$lan_ifname $wan_ifname'
 add network switch_vlan
 set network.@switch_vlan[-1].vid='4'
 set network.@switch_vlan[-1].vlan='4'
-network.@switch_vlan[-1].device='eth0'
-network.freifunk.ifname='bat0 eth0.4'
-network.@switch_vlan[-1].ports='${cpu_port}t'
+set network.@switch_vlan[-1].device='eth0'
+set network.freifunk.ifname='bat0 eth0.4'
 EOF
 uci commit network
