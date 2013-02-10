@@ -29,6 +29,7 @@ set wireless.wifi_mesh5.network='mesh5'
 set wireless.wifi_mesh5.mode='adhoc'
 set wireless.wifi_mesh5.ssid='02:d1:11:37:fc:39'
 set wireless.wifi_mesh5.bssid='02:d1:11:37:fc:39'
+set batman-adv.bat0.interfaces='mesh-vpn mesh mesh5'
 EOF
 fi
 
