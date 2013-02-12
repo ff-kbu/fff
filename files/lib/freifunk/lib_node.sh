@@ -4,7 +4,7 @@
 # Hardware-Address according to sticker
 get_main_address() {
     dual_wifi=$(is_dual_wifi)
-    if ($dual_wifi -eq 1);then
+    if [ $dual_wifi -eq 1 ];then
     	uci get wireless.radio1.macaddr
     else
 	uci get wireless.radio0.macaddr
