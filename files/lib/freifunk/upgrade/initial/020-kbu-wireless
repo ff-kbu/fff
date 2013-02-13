@@ -10,7 +10,7 @@ delete wireless.@wifi-iface[0]
 EOF
 
 
-if($dual_wifi -eq 1);then
+if [ $dual_wifi -eq 1 ];then
 uci -q batch <<EOF
 delete wireless.radio1.disabled
 delete wireless.@wifi-iface[0]
@@ -29,13 +29,14 @@ set wireless.wifi_mesh5.network='mesh5'
 set wireless.wifi_mesh5.mode='adhoc'
 set wireless.wifi_mesh5.ssid='02:d1:11:37:fc:39'
 set wireless.wifi_mesh5.bssid='02:d1:11:37:fc:39'
+set batman-adv.bat0.interfaces='mesh-vpn mesh mesh5'
 EOF
 fi
 
 
 uci -q batch <<EOF
-delete wireless.radio0.disabled
-delete wireless.@wifi-iface[0]
+#delete wireless.radio0.disabled
+#delete wireless.@wifi-iface[0]
 
 set wireless.radio0.channel='1'
 set wireless.radio0.htmode='HT40+'
