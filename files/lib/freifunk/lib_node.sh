@@ -1,4 +1,8 @@
 #!/bin/sh
+# Functions needed by different scripts
+# Tody:  Adapter / beautifier for ar71xx.sh
+# Future: Adapt other, supported platforms as well.
+
 . /lib/ar71xx.sh
 
 # Hardware-Address according to sticker
@@ -9,6 +13,10 @@ get_main_address() {
     else
 	uci get wireless.radio0.macaddr
     fi
+}
+
+get_board_name(){
+	echo $(ar71xx_board_name)	
 }
 
 # Node_Id = HW-Address, alphanumeric
