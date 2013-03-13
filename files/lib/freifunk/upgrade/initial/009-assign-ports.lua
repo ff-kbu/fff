@@ -1,6 +1,8 @@
 #!/usr/bin/lua
 
 local ut=require("luci.util")
+ut.exec("uci show network > /etc/network.dump")
+ut.exec("swconfig dev swconfig dev rtl8366rb show > /etc/switch.dump")
 
 -- Remove duplicates from table, return new table
 function uniq(tbl)
