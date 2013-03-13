@@ -38,7 +38,7 @@ set network.mesh.proto='none'
 set network.mesh.mtu='1528'
 
 set network.freifunk.ifname='bat0'
-set network.wan.ifname='$lan_ifname $wan_ifname'
+set network.freifunk.dns='2001:67c:20a0:b102::1'
 
 
 EOF
