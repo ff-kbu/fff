@@ -8,8 +8,8 @@ local wan_ifname="$(uci get network.wan.ifname)"
 
 
 local board="$(ar71xx_board_name)"
-port_info=$(swconfig dev eth0 help | grep -oe "cpu @ [0-9]")
-cpu_port=${port_info//cpu @/}
+#port_info=$(swconfig dev eth0 help | grep -oe "cpu @ [0-9]")
+#cpu_port=${port_info//cpu @/}
 
 uci -q batch <<EOF
 delete network.lan
