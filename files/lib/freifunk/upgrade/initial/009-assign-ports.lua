@@ -79,7 +79,7 @@ else
         local cmd = string.gsub(line,"vlan="..vid,"ports=\""..port_str.."\"")
         ut.exec("uci set "..cmd)
       elseif vid == ""..lan_id then
-        local cmd = string.gsub(line,"vlan="..vid,"ports=\"\"")
+        local cmd = string.gsub(line,"vlan="..vid,"ports=\"5t\"")
         ut.exec("uci set "..cmd)
       
       end

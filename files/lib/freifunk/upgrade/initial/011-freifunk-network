@@ -8,18 +8,11 @@ local wan_ifname="$(uci get network.wan.ifname)"
 
 
 local board="$(ar71xx_board_name)"
-port_info=$(swconfig dev eth0 help | grep -oe "cpu @ [0-9]")
-cpu_port=${port_info//cpu @/}
+#port_info=$(swconfig dev eth0 help | grep -oe "cpu @ [0-9]")
+#cpu_port=${port_info//cpu @/}
 
 uci -q batch <<EOF
 delete network.lan
-
-add network switch_vlan
-set network.@switch_vlan[-1].vid='4'
-set network.@switch_vlan[-1].vlan='4'
-set network.@switch_vlan[-1].device='eth0'
-
-
 
 set network.wan.type='bridge'
 set network.wan.proto='dhcp'
@@ -27,7 +20,7 @@ set network.wan.accept_ra='0'
 set network.wan.auto='1'
 
 set network.freifunk='interface'
-set network.freifunk.ifname='bat0 eth0.4'
+set network.freifunk.ifname='bat0'
 set network.freifunk.type='bridge'
 set network.freifunk.proto='none'
 set network.freifunk.auto='1'
@@ -38,7 +31,7 @@ set network.mesh.proto='none'
 set network.mesh.mtu='1528'
 
 set network.freifunk.ifname='bat0'
-set network.wan.ifname='$lan_ifname $wan_ifname'
+set network.freifunk.dns='2001:67c:20a0:b102::1'
 
 
 EOF
