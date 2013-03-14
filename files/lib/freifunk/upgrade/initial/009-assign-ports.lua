@@ -1,90 +1,88 @@
 #!/usr/bin/lua
-
 local ut=require("luci.util")
-ut.exec("uci show network > /etc/network.dump")
-ut.exec("swconfig dev swconfig dev rtl8366rb show > /etc/switch.dump")
 
--- Remove duplicates from table, return new table
-function uniq(tbl)
-    local res_table = {}
-    for k,v in ipairs(tbl) do
-      if not ut.contains(res_table,v) then
-        table.insert(res_table,v)
-      end
-    end
-  return(res_table)
-end
-
--- Join Table by given string
-function join(tbl,str)
-  local port_str = ""
-  for k,v in ipairs(tbl) do
-    port_str = port_str..str..v
+-- Helper function for parsing current config
+function parse_vlan_index(key)
+  -- Index = last_digit
+  local index
+  for word in string.gfind(key, "%d+") do
+    index = word
   end
-  return(port_str)
+  return(index)
 end
 
--- Reads Switch-Device name (needed for swconfig)
-function switch_device()
-  local dev = ut.exec("uci get network.@switch[0].name")
-  return(ut.trim(dev))
-end
-
-
-
--- Get ports of known vlan by swconfig
-function get_ports(if_name)
-  local vlanId = ut.split(if_name, ".")[2]
-  local switch_device = switch_device()
-  -- eg. swconfig dev eth0 vlan 1 show
-  local cmd_str = "swconfig dev "..switch_device.. " vlan "..vlanId.. " get ports"
-  local result = ut.trim(ut.exec(cmd_str))
-  local parsed_result = ut.split(result, " ")
-  return(parsed_result)
+-- Helper function: Create a port-set for a vlan, specified by vid, using the given lookup tables
+function create_port_set(vid, vid_table,port_table)
+  port_set = {}
+  index = vid_table[vid]
+  ports = port_table[index]
+  for port in string.gfind(ports, "%w+") do
+    port_set[port] = 1
+  end
+  return(port_set)  
 end
 
 
--- Actual code 
--- Query interface names
-local wan_if_name = ut.trim(ut.exec("uci get network.wan.ifname"))  
-local lan_if_name = ut.trim(ut.exec("uci get network.lan.ifname")) 
 
-local wan_basename = ut.split(wan_if_name,".")[1]
-local lan_basename = ut.split(lan_if_name,".")[1]
+-- Iterate, gather data on lan, wan ifnames
+local wan_if
+local lan_if
+local vlan_index_by_vid = {}
+local vlan_ports_by_index = {}
 
--- Two cases
-if wan_basename ~= lan_basename then
-  -- Simple one: Interfaces differ, ignore switch-paritioning, set up a common bridge
-  ut.exec("uci set network.wan.ifname="..wan_if_name.." "..lan_if_name)
-  ut.exec("uci set network.lan.ifname=''")
-  
-else 
-  -- Not so simple one - change switch partioning
-  
-  local wan_ports = get_ports(wan_if_name)
-  local lan_ports = get_ports(lan_if_name)
-  local ports = uniq(ut.combine(lan_ports, wan_ports))
-  local port_str = join(ports," ")
-  
-  -- Get network setup, find matching vlan-definitions, set vlan done
-  local network_config = ut.split(ut.exec("uci show network"),"\n")
-  
-  local wan_id = ut.split(wan_if_name,".")[2]
-  local lan_id = ut.split(lan_if_name,".")[2]
-  
-  for num, line in ipairs(network_config) do
-    if string.find(line,"network%.@switch_vlan%[.%]%.vlan") then
-      local vid = ut.split(line,"=")[2]
-      if vid == ""..wan_id then
-        local cmd = string.gsub(line,"vlan="..vid,"ports=\""..port_str.."\"")
-        ut.exec("uci set "..cmd)
-      elseif vid == ""..lan_id then
-        local cmd = string.gsub(line,"vlan="..vid,"ports=\"5t\"")
-        ut.exec("uci set "..cmd)
-      
-      end
+-- Dump network configuration
+local config = ut.split(ut.exec("uci show network"),"\n")
+
+-- Parse current network configuration
+for num, line in ipairs(config) do
+
+  if string.find(line, "network%.lan%.ifname") then --lan-interface
+    
+    wan_if = ut.split(line,'=')[2]  
+  elseif string.find(line,"network%.wan%.ifname") then --wan interface
+    lan_if = ut.split(line,'=')[2]
+
+  elseif string.find(line,"network%.@switch_vlan%[.%]") then -- Ports or vid
+    local key = ut.split(line,'=')[1] -- Split line
+    local value = ut.split(line,'=')[2]
+    local index = parse_vlan_index(key) -- Common part: Extract key, value, index
+    
+    if string.find(line, "ports=") then
+      vlan_ports_by_index[index] = value
+    elseif string.find(line, "vlan=") then
+      vlan_index_by_vid[value] = index
     end
   end
-  ut.exec("uci commit network")
 end
-
+  
+  -- Rules for setting up network
+  if wan_if and lan_if then --Only, if both exist, if not: No configuration is needed
+    local wan_base = ut.split(wan_if,".")[1]
+    local lan_base = ut.split(lan_if,".")[1]
+    if wan_base == lan_base then -- Different vlans - change ports
+      local wan_vid = ut.split(wan_if,".")[2]
+      local lan_vid = ut.split(lan_if,".")[2]
+      local wan_index = vlan_index_by_vid[wan_vid]
+      local lan_index = vlan_index_by_vid[lan_vid]
+      -- Merge ports - strategy: Create sets of wan / lan ports. Move ports from wan to lan if they don't exist yet
+      wan_port_set = create_port_set(wan_vid,vlan_index_by_vid,vlan_ports_by_index)
+      old_lan_port_set = create_port_set(lan_vid,vlan_index_by_vid,vlan_ports_by_index)
+      new_lan_port_set = {}
+      for i,v in pairs(old_lan_port_set) do
+        if wan_port_set[i] == nil then
+          wan_port_set[i] = 1
+        else 
+          new_lan_port_set[i] = 1
+        end
+      end
+      local wan_port_str = table.concat(ut.keys(wan_port_set), " ")
+      local lan_port_str = table.concat(ut.keys(new_lan_port_set), " ")
+      ut.exec("uci set network.@switch_vlan["..wan_index.."].ports="..wan_port_str)
+      ut.exec("uci set network.@switch_vlan["..lan_index.."].ports="..lan_port_str)
+    else -- Different interfaces, create bridge
+      ut.exec("uci set network.wan.ifname='"..wan_if.." "..lan_if.."'")
+      ut.exec("uci set network.lan.ifname=''")
+    end
+    ut.exec("uci commit network")
+  end
+  
