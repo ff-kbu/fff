@@ -36,10 +36,10 @@ local config = ut.split(ut.exec("uci show network"),"\n")
 -- Parse current network configuration
 for num, line in ipairs(config) do
 
-  if string.find(line, "network%.lan%.ifname") then --lan-interface
+  if string.find(line, "network%.wan%.ifname") then --lan-interface
     
     wan_if = ut.split(line,'=')[2]  
-  elseif string.find(line,"network%.wan%.ifname") then --wan interface
+  elseif string.find(line,"network%.lan%.ifname") then --wan interface
     lan_if = ut.split(line,'=')[2]
 
   elseif string.find(line,"network%.@switch_vlan%[.%]") then -- Ports or vid
