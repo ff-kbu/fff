@@ -11,8 +11,9 @@ local board="$(ar71xx_board_name)"
 #port_info=$(swconfig dev eth0 help | grep -oe "cpu @ [0-9]")
 #cpu_port=${port_info//cpu @/}
 
+# delete network.lan do not delete lan
+
 uci -q batch <<EOF
-delete network.lan
 
 set network.wan.type='bridge'
 set network.wan.proto='dhcp'
