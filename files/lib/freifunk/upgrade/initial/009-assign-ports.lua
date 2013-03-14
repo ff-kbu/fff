@@ -77,8 +77,8 @@ end
       end
       local wan_port_str = table.concat(ut.keys(wan_port_set), " ")
       local lan_port_str = table.concat(ut.keys(new_lan_port_set), " ")
-      ut.exec("uci set network.@switch_vlan["..wan_index.."].ports="..wan_port_str)
-      ut.exec("uci set network.@switch_vlan["..lan_index.."].ports="..lan_port_str)
+      ut.exec("uci set network.@switch_vlan["..wan_index.."].ports='"..wan_port_str.."'")
+      ut.exec("uci set network.@switch_vlan["..lan_index.."].ports='"..lan_port_str.."'")
     else -- Different interfaces, create bridge
       ut.exec("uci set network.wan.ifname='"..wan_if.." "..lan_if.."'")
       ut.exec("uci set network.lan.ifname=''")
