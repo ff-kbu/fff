@@ -1,0 +1,3 @@
+key "2a2c69dbb3b9fd90d7eb8e2f70be70b472d811cd4f3743ad9f5002d14b5c94cd";
+remote ipv4 "fastd6.kbu.freifunk.net" port 10006;
+
