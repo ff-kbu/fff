@@ -12,6 +12,7 @@ config fastd mesh_vpn
 	list method 'null'
 
 	option mode 'tap'
-	
+	option secret 'generate'
+
 	option interface 'mesh-vpn'
 	option mtu 1426
