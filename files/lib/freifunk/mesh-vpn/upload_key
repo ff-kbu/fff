@@ -2,7 +2,7 @@
 . /lib/freifunk/lib_node.sh
 UPLOAD_URL=$1
 MAC=${2//:/}
-KEY=`/usr/sbin/fastd --machine-readable --show-key -c /tmp/fastd/secret.mesh_vpn.conf`
+KEY=$(uci get fastd.mesh_vpn.secret)
 WGETC=`which wget`
 VERSION=$(cat /etc/freifunk_version)
 BOARD="$(get_board_name)"
