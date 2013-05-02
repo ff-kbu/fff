@@ -1,2 +1,2 @@
-key "e1916b66c4f8a795e217877cf72607d952e796463c7024dd9a6a47ae2929bc10";
-remote ipv4 "fastd2.kbu.freifunk.net" port 10000;
+key "9a539d2761a3533b09d01065fb995b6488612ec50d61787703c0fe94a9f79967";
+remote ipv4 "fastd2.ffm.freifunk.net" port 10000;

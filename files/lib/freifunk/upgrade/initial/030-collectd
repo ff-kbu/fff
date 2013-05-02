@@ -6,12 +6,12 @@
 
 # This script creates collectd.conf after flashing.
 
-# collectd uses node_id.nodes.kbu.freifunk.net as hostname
-# nodes.kbu.freifunk.net does not exists at this time (2012-01-15).
+# collectd uses node_id.nodes.ffm.freifunk.net as hostname
+# nodes.ffm.freifunk.net does not exists at this time (2012-01-15).
 # However, if needed, it can be set up using register / mysql- or ldap-based bind9 easily - or -
-# mdns if avahi is configured to resove nodes.kbu.freifunk.net and not .local
+# mdns if avahi is configured to resove nodes.ffm.freifunk.net and not .local
 
-local hostname="$(get_node_id).nodes.kbu.freifunk.net"
+local hostname="$(get_node_id).nodes.ffm.freifunk.net"
 
 cat > /etc/collectd.conf <<EOF
 Hostname   "${hostname}"
@@ -30,6 +30,6 @@ LoadPlugin interface
 </Plugin>
 
 <Plugin network>
-        Server "collectd.kbu.freifunk.net" "25827"
+        Server "collectd.ffm.freifunk.net" "25827"
 </Plugin>
 EOF
