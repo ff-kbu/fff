@@ -5,6 +5,7 @@ Dieses Repository enthält die Freifunk-Firmware, so wie sie im KBU-Netz verwend
 Die Branches im Upstream werden im gitweb aufgeführt: https://git.metameute.de/lff/firmware/ . In diesem Repository sind verfügbar:
 + master (README.md)
 + v0.3-generic
++ elephants_dream (Zukünftiges Release 1.1)
  
 Andere Branches im Upstream sind nicht für die Verwendung für Freifunk-KBU angepasst (d.h. es gibt hierzu keine Kopie mit patches für abweichende Konfigurationen).
 Der Generic-Branch enthält alle AR71xx-basierten Gerättypen.
