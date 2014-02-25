@@ -1,0 +1,7 @@
+config bandwidth
+	option upstream '0'
+	option downstream '0'
+	option enabled '0'
+
+config node
+	option nodeid '0'

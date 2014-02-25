@@ -1,0 +1,60 @@
+﻿#!/bin/sh
+. /lib/freifunk/lib_node.sh
+
+dual_wifi=$(is_dual_wifi)
+
+# If the device has to wifi, wifi 2 has to be set up as well ..
+uci -q batch <<EOF
+delete wireless.radio0.disabled
+delete wireless.@wifi-iface[0]
+EOF
+
+
+if [ $dual_wifi -eq 1 ];then
+uci -q batch <<EOF
+delete wireless.radio1.disabled
+delete wireless.@wifi-iface[0]
+set wireless.radio1.channel='44'
+set wireless.radio1.htmode='HT40+'
+set wireless.radio1.country='DE'
+set wireless.wifi_freifunk5='wifi-iface'
+set wireless.wifi_freifunk5.device='radio1'
+set wireless.wifi_freifunk5.network='freifunk'
+set wireless.wifi_freifunk5.mode='ap'
+set wireless.wifi_freifunk5.ssid='kbu.freifunk.net (5GHz)'
+
+set wireless.wifi_mesh5='wifi-iface'
+set wireless.wifi_mesh5.device='radio1'
+set wireless.wifi_mesh5.network='mesh5'
+set wireless.wifi_mesh5.mode='adhoc'
+set wireless.wifi_mesh5.ssid='02:d1:11:37:fc:59'
+set wireless.wifi_mesh5.bssid='02:d1:11:37:fc:59'
+set batman-adv.bat0.interfaces='mesh-vpn mesh mesh5'
+EOF
+fi
+
+
+uci -q batch <<EOF
+#delete wireless.radio0.disabled
+#delete wireless.@wifi-iface[0]
+
+set wireless.radio0.channel='1'
+set wireless.radio0.htmode='HT40+'
+set wireless.radio0.country='DE'
+
+set wireless.wifi_freifunk='wifi-iface'
+set wireless.wifi_freifunk.device='radio0'
+set wireless.wifi_freifunk.network='freifunk'
+set wireless.wifi_freifunk.mode='ap'
+set wireless.wifi_freifunk.ssid='kbu.freifunk.net'
+
+set wireless.wifi_mesh='wifi-iface'
+set wireless.wifi_mesh.device='radio0'
+set wireless.wifi_mesh.network='mesh'
+set wireless.wifi_mesh.mode='adhoc'
+set wireless.wifi_mesh.ssid='02:d1:11:37:fc:39'
+set wireless.wifi_mesh.bssid='02:d1:11:37:fc:39'
+
+commit wireless
+EOF
+

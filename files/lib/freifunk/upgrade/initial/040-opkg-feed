@@ -1,0 +1,3 @@
+#!/bin/sh
+version=$(cat /etc/freifunk_version)
+echo "src/gz ff-kbu http://jenkins.kbu.freifunk.net/files/packages/$version" >> /etc/opkg.conf

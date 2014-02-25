@@ -1,0 +1,7 @@
+#!/bin/sh
+local hostname="$(uci get freifunk.@node[0].nodeid).nodes.kbu.freifunk.net"
+
+cat >> /etc/collectd.conf <<EOF
+	Hostname   "${hostname}"
+EOF
+
