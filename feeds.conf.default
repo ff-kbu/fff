@@ -1,2 +1,4 @@
-src-git packages git://github.com/ff-kbu/fff-packages.git;elephants_dream 
+src-git packages https://github.com/ff-kbu/fff-packages.git;elephants_dream
 src-git packages_gluon https://github.com/ff-kbu/fff-packages-gluon.git;elephants_dream
+src-git luci https://github.com/ff-kbu/fff-luci.git;elephants_dream
+src-git config_mode https://github.com/ff-kbu/fff-config-mode.git;v0.3-nosetup
