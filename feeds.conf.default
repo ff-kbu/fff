@@ -1,3 +1,2 @@
 src-git packages git://github.com/ff-kbu/fff-packages.git;elephants_dream 
-src-git routing git://github.com/kaleng/packages
-src-git fastd git://git.metameute.de/lff/pkg_fastd
+src-git packages_gluon https://github.com/ff-kbu/fff-packages-gluon.git;elephants_dream
