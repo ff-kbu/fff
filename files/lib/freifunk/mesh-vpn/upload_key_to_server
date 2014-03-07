@@ -8,5 +8,5 @@ MAC=$(uci get freifunk.@node[0].nodeid)
 while [ 1 = 1 ]
 do
         $CURLC "$UPLOAD_URL/upload_key?nodeid=${MAC}&_method=post&key=${KEY}&fw_version=${VERSION}" && break
-	sleep 30
+	sleep 60
 done
