@@ -2,11 +2,11 @@
 
 UPLOAD_URL=$1
 KEY=`/etc/init.d/fastd show_key mesh_vpn`
-CURLC=`which curl`
+WGETC=`which wget`
 VERSION=$(cat /etc/freifunk_version)
 MAC=$(uci get freifunk.@node[0].nodeid)
 while [ 1 = 1 ]
 do
-        $CURLC "$UPLOAD_URL/upload_key?nodeid=${MAC}&_method=post&key=${KEY}&fw_version=${VERSION}" && break
-	sleep 60
+        $WGETC "$UPLOAD_URL/upload_key?nodeid=${MAC}&_method=post&key=${KEY}&fw_version=${VERSION}" -O - && break
+	sleep 30
 done
