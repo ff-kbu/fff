@@ -1,7 +1,7 @@
 #!/bin/sh
 
 . /lib/ar71xx.sh
-. /lib/freifunk/node.sh
+. /lib/freifunk/lib_node.sh
 
 board="$(ar71xx_board_name)"
 
