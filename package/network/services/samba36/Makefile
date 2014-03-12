@@ -86,7 +86,6 @@ CONFIGURE_VARS += \
 CONFIGURE_ARGS += \
 	--exec-prefix=/usr \
 	--prefix=/ \
-	--disable-avahi \
 	--disable-cups \
 	--disable-pie \
 	--disable-relro \
