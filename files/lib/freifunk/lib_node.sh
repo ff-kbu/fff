@@ -5,14 +5,14 @@
 get_main_address() {
     dual_wifi=$(is_dual_wifi)
     if [ $dual_wifi -eq 1 ];then
-    	$(get_radio_address "wlan1")
+    	get_radio_address "wlan1"
     else
-	$(get_radio_address "wlan0")
+	get_radio_address "wlan0"
     fi
 }
 
 get_radio_address(){
-	$(ifconfig $1 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' | awk '{print tolower($0)}')
+	ifconfig $1 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' | awk '{print tolower($0)}'
 }
 
 
