@@ -18,6 +18,16 @@ set network.wan.auto='1'
 set network.freifunk='interface'
 EOF
 
+case "$board" in
+	bullet-m)
+		uci set network.freifunk.ifname="bat0"
+		uci set network.wan.ifname="$lan_ifname"
+		;;
+	*)
+		uci set network.freifunk.ifname="$lan_ifname bat0"
+		;;
+esac
+
 uci -q batch <<EOF
 set network.freifunk.type='bridge'
 set network.freifunk.proto='none'
