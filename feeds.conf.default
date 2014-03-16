@@ -1,5 +1,6 @@
 src-git packages https://github.com/ff-kbu/fff-packages.git;elephants_dream
-src-git packages_gluon https://github.com/ff-kbu/fff-packages-gluon.git;elephants_dream
+src-git routing https://github.com/ff-kbu/packages
+src-git fastd https://github.com/ff-kbu/pkg_fastd
 src-git luci https://github.com/ff-kbu/fff-luci.git;elephants_dream
 src-git config_mode https://github.com/ff-kbu/fff-config-mode.git;v0.3-nosetup
 src-git ath9k_watchdog https://github.com/ff-kbu/ath9k-watchdog.git;elephants_dream
