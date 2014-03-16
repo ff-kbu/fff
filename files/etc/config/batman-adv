@@ -10,6 +10,7 @@ config 'mesh' 'bat0'
 	option 'log_level'
 	option 'orig_interval' '5000'
 	option 'vis_mode'
+	option 'bridge_loop_avoidance'
 
 # yet another batX instance
 # config 'mesh' 'bat5'
