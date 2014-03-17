@@ -20,6 +20,7 @@ config zone
 
 config rule
 	option name             Reject-Telnet
+	option src		*
 	option proto            tcp
 	option dest_port        23
 	option target           REJECT
