@@ -33,6 +33,7 @@ set network.freifunk.type='bridge'
 set network.freifunk.proto='none'
 set network.freifunk.auto='1'
 set network.freifunk.accept_ra='1'
+set network.freifunk.dns='fdd3:5d16:b5dd::2'
 
 set network.mesh='interface'
 set network.mesh.proto='batadv'
@@ -43,6 +44,7 @@ set network.mesh_vpn='interface'
 set network.mesh_vpn.ifname='mesh-vpn'
 set network.mesh_vpn.proto='batadv'
 set network.mesh_vpn.mesh='bat0'
+
 EOF
 
 
