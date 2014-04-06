@@ -57,6 +57,15 @@ uci set fastd.mesh_vpn.syslog_level=verbose
 uci set fastd.mesh_vpn.method="salsa2012+gmac null"
 uci set network.freifunk.dns='fdd3:5d16:b5dd::2'
 
+IFACES=$(uci get network.freifunk.ifname)
+
+/lib/freifunk/upgrade/initial/011-freifunk-network
+/lib/freifunk/upgrade/initial/040-opkg-feed
+/lib/freifunk/upgrade/initial/050-collectd
+
+uci set network.freifunk.ifname="$IFACES"
+uci commit
+
 cat > /etc/config/batman-adv << EOF
 config 'mesh' 'bat0'
 	option 'aggregated_ogms'
