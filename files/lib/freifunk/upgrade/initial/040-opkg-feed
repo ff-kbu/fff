@@ -1,3 +1,4 @@
 #!/bin/sh
 version=$(cat /etc/freifunk_version)
-echo "src/gz ff-kbu http://jenkins.kbu.freifunk.net/files/packages/$version" >> /etc/opkg.conf
+echo -ne "srv/gz proxy http://openwrt.bb.kbu.freifunk.net/snapshots/trunk/ar71xx/packages \n" >> /etc/opkg.conf
+echo -ne "src/gz ff-kbu http://jenkins.kbu.freifunk.net/files/packages/$version \n" >> /etc/opkg.conf
