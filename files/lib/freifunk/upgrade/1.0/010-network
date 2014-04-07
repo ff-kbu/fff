@@ -1,0 +1,26 @@
+#!/bin/sh
+
+uci -q batch <<EOF
+set network.mesh_vpn='interface'
+set network.mesh_vpn.ifname='mesh-vpn'
+set network.mesh_vpn.proto='batadv'
+set network.mesh_vpn.mesh='bat0'
+set network.freifunk.dns='fdd3:5d16:b5dd::2'
+
+set fastd.mesh_vpn.syslog_level=verbose
+set fastd.mesh_vpn.method="salsa2012+gmac null"
+
+
+EOF
+
+
+cp /rom/etc/config/batman-adv /etc/config
+
+
+IFACES=$(uci get network.freifunk.ifname)
+
+uci set network.freifunk.ifname="$IFACES"
+uci commit
+/etc/init.d/fastd restart
+/etc/init.d/networking restart
+
