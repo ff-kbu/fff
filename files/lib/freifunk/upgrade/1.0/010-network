@@ -16,11 +16,6 @@ EOF
 
 cp /rom/etc/config/batman-adv /etc/config
 
-
-IFACES=$(uci get network.freifunk.ifname) ## Sinn?
-
-uci set network.freifunk.ifname="$IFACES" ## Variable wird gelesen und in den gl. Wert geschrieben...
-
 uci commit
 /etc/init.d/fastd restart
 /etc/init.d/networking restart
