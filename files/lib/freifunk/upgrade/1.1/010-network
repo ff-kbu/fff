@@ -1,4 +1,7 @@
 #!/bin/sh
+. /lib/freifunk/lib_node.sh
+
+cp /rom/etc/config/batman-adv /etc/config
 
 uci -q batch <<EOF
 set network.mesh_vpn='interface'
@@ -9,12 +12,14 @@ set network.freifunk.dns='fdd3:5d16:b5dd::2'
 
 set fastd.mesh_vpn.syslog_level=verbose
 set fastd.mesh_vpn.method="salsa2012+gmac null"
-
-
+set batman-adv.bat0.interfaces='mesh-vpn mesh'
 EOF
 
+if is_dual_wifi ;then
+uci -q batch <<EOF
+set batman-adv.bat0.interfaces='mesh-vpn mesh mesh5'
 
-cp /rom/etc/config/batman-adv /etc/config
+EOF
 
 uci commit
 /etc/init.d/fastd restart
