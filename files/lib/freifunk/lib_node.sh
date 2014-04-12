@@ -3,8 +3,7 @@
 
 # Hardware-Address according to sticker
 get_main_address() {
-    dual_wifi=$(is_dual_wifi)
-    if [ $dual_wifi -eq 1 ];then
+    if is_dual_wifi;then
     	get_radio_address "wlan1"
     else
 	get_radio_address "wlan0"
