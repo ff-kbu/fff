@@ -18,5 +18,5 @@ cp /rom/etc/config/batman-adv /etc/config
 
 uci commit
 /etc/init.d/fastd restart
-/etc/init.d/networking restart
+/etc/init.d/network restart
 
