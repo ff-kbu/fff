@@ -4,8 +4,6 @@
 VERSION_FILE=/etc/freifunk_version
 
 KEEP_VERSION_FILE=/etc/.freifunk_version_keep
-KEEP_VERSION_FILE_LFF=/etc/.lff_version_keep
-KEEP_VERSION_FILE_KFF=/etc/.kff_version_keep
 
 UPGRADE_DIR=/lib/freifunk/upgrade
 
@@ -25,8 +23,6 @@ do_dir() {
 version="$(cat "$VERSION_FILE")"
 
 oldversion="$(cat "$KEEP_VERSION_FILE" 2>/dev/null)"
-if [ -z "$oldversion" ]; then oldversion="$(cat "$KEEP_VERSION_FILE_LFF" 2>/dev/null)"; fi
-if [ -z "$oldversion" ]; then oldversion="$(cat "$KEEP_VERSION_FILE_KFF" 2>/dev/null)"; fi
 
 
 (
@@ -49,4 +45,3 @@ if [ -z "$oldversion" ]; then oldversion="$(cat "$KEEP_VERSION_FILE_KFF" 2>/dev/
 
 echo "$version" > "$KEEP_VERSION_FILE"
 
-rm -f "$KEEP_VERSION_FILE_LFF" "$KEEP_VERSION_FILE_KFF"
