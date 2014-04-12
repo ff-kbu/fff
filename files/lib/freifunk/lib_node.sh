@@ -24,6 +24,7 @@ get_node_id(){
 
 # Dual wifi? yes / no
 # More than two devies => dual wifi, too.
+# UNDEFINED, IF WIFI IS PRESENT!
 is_dual_wifi(){
   inum=$(iw phy | grep Wiphy | wc -l)
   test "$inum" != "1"
