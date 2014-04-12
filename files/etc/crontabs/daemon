@@ -1,0 +1,1 @@
+*/4 3 * * * /etc/init.d/collectd restart
