@@ -2,7 +2,7 @@
 version=$(cat /etc/freifunk_version)
 
 cat > /etc/opkg.conf <<EOF 
-        src/gz proxy http://openwrt.bb.kbu.freifunk.net/snapshots/trunk/ar71xx/packages
-        src/gz ff-kbu http://jenkins.kbu.freifunk.net/files/packages/$version
+  src/gz ff-kbu http://jenkins.kbu.freifunk.net/files/packages/$version
+  src/gz proxy http://openwrt.bb.kbu.freifunk.net/snapshots/trunk/ar71xx/packages
 EOF
 cat /etc/opkg.conf.default >> /etc/opkg.conf
