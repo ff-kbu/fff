@@ -23,14 +23,8 @@ get_node_id(){
 }
 
 # Dual wifi? yes / no
+# More than two devies => dual wifi, too.
 is_dual_wifi(){
-  local board="$(ar71xx_board_name)"
-  case "$board" in
-    tl-wdr3600|tl-wdr4300)
-            echo 1
-            ;;
-    *)
-            echo 0
-            ;;
-    esac
+  inum=$(iw phy | grep Wiphy | wc -l)
+  test "$inum" != "1"
 }
