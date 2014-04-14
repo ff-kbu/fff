@@ -8,10 +8,16 @@ set network.mesh_vpn='interface'
 set network.mesh_vpn.ifname='mesh-vpn'
 set network.mesh_vpn.proto='batadv'
 set network.mesh_vpn.mesh='bat0'
+
+set network.mesh.mesh='bat0'
+set network.mesh.proto='batadv'
+
 set network.freifunk.dns='fdd3:5d16:b5dd::2'
 
 set fastd.mesh_vpn.syslog_level=verbose
-set fastd.mesh_vpn.method="salsa2012+gmac null"
+delete fastd.mesh_vpn.method
+add_list fastd.mesh_vpn.method="salsa2012+gmac"
+add_list fastd.mesh_vpn.method="null"
 set batman-adv.bat0.interfaces='mesh-vpn mesh'
 EOF
 
