@@ -1,0 +1,42 @@
+#!/bin/sh
+. /lib/freifunk/lib_node.sh
+
+cp /rom/etc/config/batman-adv /etc/config
+
+uci -q batch <<EOF
+set network.mesh_vpn='interface'
+set network.mesh_vpn.ifname='mesh-vpn'
+set network.mesh_vpn.proto='batadv'
+set network.mesh_vpn.mesh='bat0'
+
+set network.mesh.mesh='bat0'
+set network.mesh.proto='batadv'
+
+set network.freifunk.dns='fdd3:5d16:b5dd::2'
+
+set fastd.mesh_vpn.syslog_level=verbose
+delete fastd.mesh_vpn.method
+add_list fastd.mesh_vpn.method="salsa2012+gmac"
+add_list fastd.mesh_vpn.method="null"
+set batman-adv.bat0.interfaces='mesh-vpn mesh'
+EOF
+
+if is_dual_wifi ;then
+uci -q batch <<EOF
+set batman-adv.bat0.interfaces='mesh-vpn mesh mesh5'
+EOF
+fi
+
+local mainaddr=$(get_main_address)
+local oIFS="$IFS"; IFS=":"; set -- $mainaddr; IFS="$oIFS"
+local b2mask=0x02
+
+local vpnaddr=$(printf "%02x:%s:%s:%02x:%s:%s" $(( 0x$1 | $b2mask )) $2 $3 $(( (0x$4 + 1) % 0x100 )) $5 $6)
+
+uci set network.freifunk.macaddr="$mainaddr"
+uci set network.mesh_vpn.macaddr="$vpnaddr"
+
+uci commit
+/etc/init.d/fastd restart
+/etc/init.d/network restart
+

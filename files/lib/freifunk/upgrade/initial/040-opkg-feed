@@ -1,0 +1,10 @@
+#!/bin/sh
+version=$(cat /etc/freifunk_version)
+
+cat > /etc/opkg.conf <<EOF 
+  src/gz ff-kbu http://jenkins.kbu.freifunk.net/files/packages/$version
+  src/gz ff-kbu-v6 http://jenkins-v6.kbu.freifunk.net/files/packages/$version
+  src/gz openwrt http://downloads.openwrt.org/snapshots/trunk/ar71xx/packages/
+  src/gz proxy http://openwrt.kbu.freifunk.net/snapshots/trunk/ar71xx/packages
+EOF
+cat /etc/opkg.conf.default >> /etc/opkg.conf

@@ -1,0 +1,20 @@
+#!/bin/sh
+	## Key-Upload
+        URL_1='http://fastd1.kbu.freifunk.net/fastd-upload/'
+        URL_2='http://fastd2.kbu.freifunk.net/fastd-upload/'
+        URL_3='http://fastd3.kbu.freifunk.net/fastd-upload/'
+        URL_4='http://fastd4.kbu.freifunk.net/fastd-upload/'
+        URL_5='http://fastd5.kbu.freifunk.net/fastd-upload/'
+        URL_6='http://fastd6.kbu.freifunk.net/fastd-upload/'
+        URL_7='http://fastd7.kbu.freifunk.net/fastd-upload/'
+        URL_8='http://fastd8.kbu.freifunk.net/fastd-upload/'
+
+        /lib/freifunk/mesh-vpn/upload_key_to_server $URL_1 &
+        /lib/freifunk/mesh-vpn/upload_key_to_server $URL_2 &
+        /lib/freifunk/mesh-vpn/upload_key_to_server $URL_3 &
+        /lib/freifunk/mesh-vpn/upload_key_to_server $URL_4 &
+        /lib/freifunk/mesh-vpn/upload_key_to_server $URL_5 &
+        /lib/freifunk/mesh-vpn/upload_key_to_server $URL_6 &
+        /lib/freifunk/mesh-vpn/upload_key_to_server $URL_7 &
+        /lib/freifunk/mesh-vpn/upload_key_to_server $URL_8 &
+

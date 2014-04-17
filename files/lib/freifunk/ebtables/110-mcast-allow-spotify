@@ -1,0 +1,3 @@
+rule MULTICAST_OUT -p IPv4 --ip-destination 239.192.83.80 -j RETURN
+rule MULTICAST_OUT -p IPv4 --ip-destination 239.255.255.250 -j RETURN
+
