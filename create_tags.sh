@@ -8,3 +8,9 @@ do
 	git push origin $1
 	cd ../..
 done
+
+#Check out tags
+sed s/elephants_dream/$1/g < feeds.conf.default > feeds.conf
+git commit -m "Tagged feeds" feeds.conf
+git push
+
