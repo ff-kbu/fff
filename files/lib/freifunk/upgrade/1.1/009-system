@@ -2,7 +2,7 @@
 . /lib/ar71xx.sh
 . /lib/freifunk/lib_node.sh
 
-cp /etc/rom/sysctl.conf /etc
+cp /rom/etc/sysctl.conf /etc
 sysctl -w -p
 uci add freifunk node
 uci commit freifunk
