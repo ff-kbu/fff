@@ -8,6 +8,7 @@ local board="$(ar71xx_board_name)"
 
 uci -q batch <<EOF
 delete network.lan
+delete network.wan6
 
 set network.wan='interface'
 set network.wan.type='bridge'
