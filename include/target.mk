@@ -12,7 +12,7 @@ __target_inc=1
 DEVICE_TYPE?=router
 
 # Default packages - the really basic set
-DEFAULT_PACKAGES:=base-files libc libgcc busybox dropbear mtd uci opkg netifd
+DEFAULT_PACKAGES:=base-files libc libgcc busybox dropbear mtd uci opkg netifd fstools
 # For router targets
 #DEFAULT_PACKAGES.router:=dnsmasq iptables ip6tables ppp ppp-mod-pppoe kmod-ipt-nathelper firewall odhcpd odhcp6c
 DEFAULT_PACKAGES.bootloader:=
@@ -231,6 +231,7 @@ ifeq ($(DUMP),1)
     CPU_CFLAGS_cortex-a7 = -march=armv7-a -mtune=cortex-a7
     CPU_CFLAGS_cortex-a8 = -march=armv7-a -mtune=cortex-a8
     CPU_CFLAGS_cortex-a9 = -march=armv7-a -mtune=cortex-a9
+    CPU_CFLAGS_cortex-a15 = -march=armv7-a -mtune=cortex-a15
     CPU_CFLAGS_fa526 = -march=armv4 -mtune=fa526
     CPU_CFLAGS_mpcore = -march=armv6k -mtune=mpcore
     CPU_CFLAGS_xscale = -march=armv5te -mtune=xscale

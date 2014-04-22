@@ -4,7 +4,7 @@
  #define BR_ADMIN_COST		0x00000010
  #define BR_LEARNING		0x00000020
  #define BR_FLOOD		0x00000040
-+#define BR_ISOLATE_MODE	0x00000020
++#define BR_ISOLATE_MODE	0x00000080
  
  #ifdef CONFIG_BRIDGE_IGMP_SNOOPING
  	struct bridge_mcast_query	ip4_query;
@@ -43,7 +43,7 @@
  
 --- a/net/bridge/br_input.c
 +++ b/net/bridge/br_input.c
-@@ -119,8 +119,8 @@ int br_handle_frame_finish(struct sk_buf
+@@ -120,8 +120,8 @@ int br_handle_frame_finish(struct sk_buf
  
  		unicast = false;
  		br->dev->stats.multicast++;

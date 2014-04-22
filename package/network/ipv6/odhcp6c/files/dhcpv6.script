@@ -75,6 +75,10 @@ setup_interface () {
 		fi
 	done
 
+	proto_add_data
+	[ -n "$CER" ] && json_add_string cer "$CER"
+	proto_close_data
+
 	proto_send_update "$INTERFACE"
 
 	if [ -n "$AFTR_IP " -a -n "$IFACE_DSLITE" ]; then
@@ -84,6 +88,8 @@ setup_interface () {
 		json_add_string proto "dslite"
 		json_add_string peeraddr "$AFTR_IP"
 		json_add_string tunlink "$INTERFACE"
+		[ -n "$ZONE_DSLITE" ] && json_add_string zone "$ZONE_DSLITE"
+		[ -n "$IFACE_DSLITE_DELEGATE" ] && json_add_boolean delegate "$IFACE_DSLITE_DELEGATE"
 		json_close_object
 		ubus call network add_dynamic "$(json_dump)"
 	fi
