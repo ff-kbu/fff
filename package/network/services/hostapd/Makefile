@@ -8,9 +8,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hostapd
-PKG_VERSION:=2014-04-04
+PKG_VERSION:=2014-04-24
 PKG_RELEASE:=1
-PKG_REV:=ca4fd18290cc0966cba6d71a079d8c9177e53d1d
+PKG_REV:=3cf48c4f2e2d558130253457fea02ef4047cf8e1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=git://w1.fi/srv/git/hostap.git
@@ -88,6 +88,7 @@ endif
 
 ifdef CONFIG_USE_EGLIBC
   TARGET_LDFLAGS += -lrt
+  TARGET_LDFLAGS_C += -lrt
 endif
 
 DRV_DEPENDS:=+PACKAGE_kmod-mac80211:libnl-tiny @(!TARGET_avr32||BROKEN)
@@ -267,7 +268,7 @@ define Build/RunMake
 		$(TARGET_CONFIGURE_OPTS) \
 		$(DRIVER_MAKEOPTS) \
 		LIBS="$(TARGET_LDFLAGS)" \
-		LIBS_c="" \
+		LIBS_c="$(TARGET_LDFLAGS_C)" \
 		BCHECK= \
 		$(2)
 endef
