@@ -5,6 +5,8 @@
 
 local lan_ifname="$(uci get network.lan.ifname)"
 local board="$(ar71xx_board_name)"
+local wan_ifname="$(uci get network.wan.ifname)"
+
 
 uci -q batch <<EOF
 delete network.lan
@@ -19,15 +21,13 @@ set network.wan.auto='1'
 set network.freifunk='interface'
 EOF
 
-case "$board" in
-	bullet-m)
-		uci set network.freifunk.ifname="bat0"
+# Falls kein WAN-Interface vorhanden, nutze einziges LAN-Interface
+if [ -z "$wan_ifname" ]
+then		uci set network.freifunk.ifname="bat0"
 		uci set network.wan.ifname="$lan_ifname"
-		;;
-	*)
+else
 		uci set network.freifunk.ifname="$lan_ifname bat0"
-		;;
-esac
+fi
 
 uci -q batch <<EOF
 set network.freifunk.type='bridge'
