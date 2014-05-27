@@ -23,7 +23,8 @@ EOF
 
 # Falls kein WAN-Interface vorhanden, nutze einziges LAN-Interface
 if [ -z "$wan_ifname" ]
-then		uci set network.freifunk.ifname="bat0"
+then		
+		uci set network.freifunk.ifname="bat0"
 		uci set network.wan.ifname="$lan_ifname"
 else
 		uci set network.freifunk.ifname="$lan_ifname bat0"
