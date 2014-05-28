@@ -1,6 +1,6 @@
-src-git packages ssh://git@github.com/ff-kbu/fff-packages.git;elephants_dream
-src-git routing ssh://git@github.com/ff-kbu/packages
-src-git fastd ssh://git@github.com/ff-kbu/pkg_fastd
-src-git luci ssh://git@github.com/ff-kbu/fff-luci.git;elephants_dream
-src-git config_mode ssh://git@github.com/ff-kbu/fff-config-mode.git;v0.3-nosetup
-src-git ath9k_watchdog ssh://git@github.com/ff-kbu/ath9k-watchdog.git;elephants_dream
+src-git packages ssh://git@github.com/ff-kbu/fff-packages.git;stable
+src-git routing ssh://git@github.com/ff-kbu/packages;stable
+src-git fastd ssh://git@github.com/ff-kbu/pkg_fastd;stable
+src-git luci ssh://git@github.com/ff-kbu/fff-luci.git;stable
+src-git config_mode ssh://git@github.com/ff-kbu/fff-config-mode.git;stable
+src-git ath9k_watchdog ssh://git@github.com/ff-kbu/ath9k-watchdog.git;stable
