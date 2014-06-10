@@ -112,6 +112,7 @@ else
 endif
 
 STAMP_CONFIGURED := $(STAMP_CONFIGURED)_$(subst $(space),_,$(OPENSSL_OPTIONS))
+OPENSSL_OPTIONS += -DOPENSSL_NO_HEARTBEATS 
 
 define Build/Configure
 	[ -f $(STAMP_CONFIGURED) ] || { \
