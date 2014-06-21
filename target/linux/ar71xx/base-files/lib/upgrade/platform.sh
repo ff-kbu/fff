@@ -305,6 +305,10 @@ platform_check_image() {
 		}
 		return 0
 		;;
+	wndr4300 )
+		nand_do_platform_check $board $1
+		return $?;
+		;;
 	routerstation | \
 	routerstation-pro | \
 	ls-sr71 | \

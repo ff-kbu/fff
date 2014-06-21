@@ -164,7 +164,7 @@ _procd_add_interface_trigger() {
 	json_close_array
 }
 
-_procd_add_network_trigger() {
+_procd_add_reload_interface_trigger() {
 	local script=$(readlink "$initscript")
 	local name=$(basename ${script:-$initscript})
 
@@ -198,9 +198,12 @@ _procd_add_config_trigger() {
 _procd_add_reload_trigger() {
 	local script=$(readlink "$initscript")
 	local name=$(basename ${script:-$initscript})
+	local file
 
 	_procd_open_trigger
-	_procd_add_config_trigger "config.change" $1 /etc/init.d/$name reload
+	for file in "$@"; do
+		_procd_add_config_trigger "config.change" "$file" /etc/init.d/$name reload
+	done
 	_procd_close_trigger
 }
 
@@ -280,9 +283,10 @@ _procd_wrapper \
 	procd_close_service \
 	procd_add_instance \
 	procd_add_config_trigger \
-	procd_add_reload_trigger \
 	procd_add_interface_trigger \
-	procd_add_network_trigger \
+	procd_add_reload_trigger \
+	procd_add_reload_interface_trigger \
+	procd_add_interface_reload \
 	procd_open_trigger \
 	procd_close_trigger \
 	procd_open_instance \

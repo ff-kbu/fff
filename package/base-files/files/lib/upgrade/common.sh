@@ -55,7 +55,8 @@ run_ramfs() { # <command> [...]
 		/bin/grep /bin/cp /bin/mv /bin/tar /usr/bin/md5sum "/usr/bin/["	\
 		/bin/dd /bin/vi /bin/ls /bin/cat /usr/bin/awk /usr/bin/hexdump	\
 		/bin/sleep /bin/zcat /usr/bin/bzcat /usr/bin/printf /usr/bin/wc \
-		/bin/cut /usr/bin/printf /bin/sync
+		/bin/cut /usr/bin/printf /bin/sync /bin/mkdir /bin/rmdir	\
+		/bin/rm /usr/bin/basename /bin/kill /bin/chmod
 
 	install_bin /sbin/mtd
 	install_bin /sbin/ubi
@@ -64,6 +65,8 @@ run_ramfs() { # <command> [...]
 	install_bin /sbin/snapshot_tool
 	install_bin /usr/sbin/ubiupdatevol
 	install_bin /usr/sbin/ubiattach
+	install_bin /usr/sbin/ubiblock
+	install_bin /usr/sbin/ubiformat
 	install_bin /usr/sbin/ubidetach
 	install_bin /usr/sbin/ubirsvol
 	install_bin /usr/sbin/ubirmvol
@@ -72,6 +75,8 @@ run_ramfs() { # <command> [...]
 		install_bin ${file//:/ }
 	done
 	install_file /etc/resolv.conf /lib/functions.sh /lib/functions/*.sh /lib/upgrade/*.sh $RAMFS_COPY_DATA
+
+	[ -L "/lib64" ] && ln -s /lib $RAM_ROOT/lib64
 
 	supivot $RAM_ROOT /mnt || {
 		echo "Failed to switch over to ramfs. Please reboot."
@@ -110,7 +115,7 @@ kill_remaining() { # [ <signal> ]
 
 		case "$name" in
 			# Skip essential services
-			*procd*|*ash*|*init*|*watchdog*|*ssh*|*dropbear*|*telnet*|*login*|*hostapd*|*wpa_supplicant*|*nas*) : ;;
+			*procd*|*upgraded*|*ash*|*init*|*watchdog*|*ssh*|*dropbear*|*telnet*|*login*|*hostapd*|*wpa_supplicant*|*nas*) : ;;
 
 			# Killable process
 			*)
@@ -179,11 +184,11 @@ get_image() { # <source> [ <command> ]
 }
 
 get_magic_word() {
-	get_image "$@" | dd bs=2 count=1 2>/dev/null | hexdump -v -n 2 -e '1/1 "%02x"'
+	(get_image "$@" | dd bs=2 count=1 | hexdump -v -n 2 -e '1/1 "%02x"') 2>/dev/null
 }
 
 get_magic_long() {
-	get_image "$@" | dd bs=4 count=1 2>/dev/null | hexdump -v -n 4 -e '1/1 "%02x"'
+	(get_image "$@" | dd bs=4 count=1 | hexdump -v -n 4 -e '1/1 "%02x"') 2>/dev/null
 }
 
 jffs2_copy_config() {

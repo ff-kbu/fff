@@ -348,6 +348,7 @@ endef
 Image/Build/Profile/ASL26555=$(call BuildFirmware/ASL26555/$(1),$(1),asl26555,ASL26555)
 
 Image/Build/Profile/AWM002EVB=$(call BuildFirmware/DefaultDualSize/$(1),$(1),awm002-evb,AWM002-EVB)
+Image/Build/Profile/AWAPN2403=$(call BuildFirmware/Default4M/$(1),$(1),awmapn2403,AWAPN2403)
 
 Image/Build/Profile/BC2=$(call BuildFirmware/Default8M/$(1),$(1),bc2,BC2)
 
@@ -562,6 +563,7 @@ define Image/Build/Profile/Default
 	$(call Image/Build/Profile/ARGUS_ATP52B,$(1))
 	$(call Image/Build/Profile/ASL26555,$(1))
 	$(call Image/Build/Profile/AWM002EVB,$(1))
+	$(call Image/Build/Profile/AWAPN2403,$(1))
 	$(call Image/Build/Profile/BC2,$(1))
 	$(call Image/Build/Profile/BROADWAY,$(1))
 	$(call Image/Build/Profile/CARAMBOLA,$(1))
@@ -663,7 +665,13 @@ Image/Build/Profile/DIR645=$(call BuildFirmware/Seama/$(1),$(1),dir-645,DIR-645,
 omniembhpm_mtd_size=16449536
 Image/Build/Profile/OMNIEMBHPM=$(call BuildFirmware/CustomFlash/$(1),$(1),omni-emb-hpm,OMNI-EMB-HPM,$(omniembhpm_mtd_size))
 
-Image/Build/Profile/RTN56U=$(call BuildFirmware/Default8M/$(1),$(1),rt-n56u,RTN56U)
+define BuildFirmware/RTN56U/squashfs
+	$(call BuildFirmware/Default8M/$(1),$(1),rt-n56u,RTN56U)
+	-mkrtn56uimg -s $(call sysupname,$(1),rt-n56u)
+	-cp $(call sysupname,$(1),rt-n56u) $(call imgname,$(1),rt-n56u)-factory.bin
+	-mkrtn56uimg -f $(call imgname,$(1),rt-n56u)-factory.bin
+endef
+Image/Build/Profile/RTN56U=$(call BuildFirmware/RTN56U/$(1),$(1),rt-n56u,RTN56U)
 
 Image/Build/Profile/TEW691GR=$(call BuildFirmware/UMedia/$(1),$(1),tew-691gr,TEW-691GR,0x026910)
 

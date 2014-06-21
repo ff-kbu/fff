@@ -129,6 +129,20 @@ ifneq ($(CONFIG_TARGET_ROOTFS_SQUASHFS),)
     endef
 endif
 
+# $(1): board name
+# $(2): kernel image
+# $(3): rootfs image
+ifneq ($(CONFIG_NAND_SUPPORT),)
+   define Image/Build/SysupgradeNAND
+	mkdir -p $(KDIR_TMP)/sysupgrade-$(1)/
+	echo "BOARD=$(1)" > $(KDIR_TMP)/sysupgrade-$(1)/CONTROL
+	[ -z "$(2)" ] || $(CP) $(2) $(KDIR_TMP)/sysupgrade-$(1)/kernel
+	[ -z "$(3)" ] || $(CP) $(3) $(KDIR_TMP)/sysupgrade-$(1)/root
+	(cd $(KDIR_TMP); $(TAR) cvf \
+		$(BIN_DIR)/$(IMG_PREFIX)-$(1)-ubi-sysupgrade.tar sysupgrade-$(1))
+   endef
+endif
+
 ifneq ($(CONFIG_TARGET_ROOTFS_UBIFS),)
     define Image/mkfs/ubifs/generate
 	$(CP) ./ubinize$(1).cfg $(KDIR)

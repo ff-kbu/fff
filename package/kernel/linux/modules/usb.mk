@@ -394,6 +394,9 @@ ifeq ($(strip $(call CompareKernelPatchVer,$(KERNEL_PATCHVER),ge,3.8.0)),1)
   FILES:= \
 	$(LINUX_DIR)/drivers/usb/host/ehci-hcd.ko \
 	$(LINUX_DIR)/drivers/usb/host/ehci-platform.ko
+  ifneq ($(wildcard $(LINUX_DIR)/drivers/usb/host/ehci-orion.ko),)
+    FILES+=$(LINUX_DIR)/drivers/usb/host/ehci-orion.ko
+  endif
   AUTOLOAD:=$(call AutoLoad,40,ehci-hcd ehci-platform,1)
 else
   FILES:=$(LINUX_DIR)/drivers/usb/host/ehci-hcd.ko
@@ -1358,7 +1361,7 @@ $(eval $(call KernelPackage,usbip-server))
 
 define KernelPackage/usb-chipidea
   TITLE:=Support for ChipIdea controllers
-  DEPENDS:=+kmod-usb2
+  DEPENDS:=+kmod-usb2 +USB_GADGET_SUPPORT:kmod-usb-gadget
   KCONFIG:=\
 	CONFIG_USB_CHIPIDEA \
 	CONFIG_USB_CHIPIDEA_HOST=y \
@@ -1373,7 +1376,6 @@ ifeq ($(strip $(call CompareKernelPatchVer,$(KERNEL_PATCHVER),lt,3.11.0)),1)
 else
   FILES:=\
 	$(LINUX_DIR)/drivers/usb/chipidea/ci_hdrc.ko \
-	$(if $(CONFIG_USB_GADGET),$(LINUX_DIR)/drivers/usb/gadget/udc-core.ko) \
 	$(if $(CONFIG_OF),$(LINUX_DIR)/drivers/usb/chipidea/ci_hdrc_imx.ko) \
 	$(if $(CONFIG_OF),$(LINUX_DIR)/drivers/usb/chipidea/usbmisc_imx.ko)
   AUTOLOAD:=$(call AutoLoad,51,ci_hdrc $(if $(CONFIG_OF),ci_hdrc_imx usbmisc_imx),1)

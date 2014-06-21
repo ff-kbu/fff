@@ -184,6 +184,7 @@ sub target_config_features(@) {
 		/mips16/ and $ret .= "\tselect HAS_MIPS16\n";
 		/rfkill/ and $ret .= "\tselect RFKILL_SUPPORT\n";
 		/low_mem/ and $ret .= "\tselect LOW_MEMORY_FOOTPRINT\n";
+		/nand/ and $ret .= "\tselect NAND_SUPPORT\n";
 	}
 	return $ret;
 }
@@ -503,7 +504,7 @@ sub mconf_depends {
 					next if $depend eq $condition;
 					$depend = "$depend if $condition";
 				} else {
-					$depend = "!($condition) || $depend";
+					$depend = "!($condition) || $depend" unless $dep->{$condition} eq 'select';
 				}
 			}
 		}
