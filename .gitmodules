@@ -1,0 +1,3 @@
+[submodule "openwrt-aa"]
+	path = openwrt-aa
+	url = https://github.com/ff-kbu/openwrt-aa.git
