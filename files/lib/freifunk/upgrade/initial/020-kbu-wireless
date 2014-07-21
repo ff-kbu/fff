@@ -16,7 +16,7 @@ uci -q batch <<EOF
 #delete wireless.@wifi-iface[0]
 
 set wireless.radio0.channel='1'
-set wireless.radio0.htmode='HT40+'
+set wireless.radio0.htmode='HT20'
 set wireless.radio0.country='DE'
 
 set wireless.wifi_freifunk='wifi-iface'
@@ -40,7 +40,7 @@ uci -q batch <<EOF
 delete wireless.radio1.disabled
 delete wireless.@wifi-iface[0]
 set wireless.radio1.channel='44'
-set wireless.radio1.htmode='HT40+'
+set wireless.radio1.htmode='HT20'
 set wireless.radio1.country='DE'
 set wireless.wifi_freifunk5='wifi-iface'
 set wireless.wifi_freifunk5.device='radio1'
