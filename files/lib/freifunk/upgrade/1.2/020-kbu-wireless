@@ -1,0 +1,13 @@
+#!/bin/sh
+. /lib/freifunk/lib_node.sh
+
+uci set wireless.radio0.htmode='HT20'
+
+if is_dual_wifi; then
+uci set wireless.radio1.htmode='HT20'
+fi
+
+uci commit wireless
+
+/etc/init.d/network restart
+
