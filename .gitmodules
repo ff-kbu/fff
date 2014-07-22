@@ -1,3 +1,21 @@
 [submodule "openwrt-aa"]
 	path = openwrt-aa
 	url = https://github.com/ff-kbu/openwrt-aa.git
+[submodule "feeds/openwrt-packages-aa"]
+	path = feeds/openwrt-packages-aa
+	url = https://github.com/ff-kbu/openwrt-packages-aa.git
+[submodule "feeds/openwrt-routing"]
+	path = feeds/openwrt-routing
+	url = https://github.com/ff-kbu/packages.git
+[submodule "feeds/fastd"]
+	path = feeds/fastd
+	url = https://github.com/ff-kbu/pkg_fastd
+[submodule "feeds/luci"]
+	path = feeds/luci
+	url = https://github.com/ff-kbu/fff-luci.git
+[submodule "feeds/config-mode"]
+	path = feeds/config-mode
+	url = https://github.com/ff-kbu/fff-config-mode.git
+[submodule "feeds/ath9k-watchdog"]
+	path = feeds/ath9k-watchdog
+	url = https://github.com/ff-kbu/ath9k-watchdog.git
