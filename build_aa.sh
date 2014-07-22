@@ -1,5 +1,7 @@
 #!/bin/sh
-echo "\n ### \n ### Building Attitude Adjustment in openwrt-aa \n ### \n" 
+echo ***
+echo ***  Building Attitude Adjustment in openwrt-aa 
+echo *** 
 cd openwrt-aa
 
 rm -rf bin/ar71xx/* #remove old images
@@ -9,4 +11,5 @@ scripts/feeds install -a
 cp ../configs/config-aa .config
 
 # Version-Strings codieren
-make CONFIG_VERSION_NUMBER="${BUILD_ID} (ff-kbu-master-aa-continuous)" -j 8
+make CONFIG_VERSION_NUMBER="${BUILD_ID} (ff-kbu-master-aa-continuous)" -j 8 V=99
+ 
