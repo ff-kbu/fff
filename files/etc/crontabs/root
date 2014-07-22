@@ -1,0 +1,2 @@
+0 * * * * /etc/init.d/collectd restart
+*/5 * * * * /lib/freifunk/populate_alfred.sh
