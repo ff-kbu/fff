@@ -24,4 +24,4 @@
 	url = https://github.com/ff-kbu/openwrt-bb.git
 [submodule "feeds/openwrt-packages-bb"]
 	path = feeds/openwrt-packages-bb
-	url = https://github.com/ff-kbu/openwrt-bb-packages.git
+	url = https://github.com/ff-kbu/openwrt-packages-bb.git
