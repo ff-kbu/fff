@@ -11,6 +11,6 @@ scripts/feeds install -a
 cp ../configs/config-aa .config
 
 # Version-Strings codieren
-make CONFIG_VERSION_NUMBER="${BUILD_ID} (ff-kbu-master-aa-continuous)" -j 16
+make CONFIG_VERSION_NUMBER="${BUILD_ID} (ff-kbu-master-aa-continuous)" V=99
 
  
