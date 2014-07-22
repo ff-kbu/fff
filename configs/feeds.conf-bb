@@ -1,0 +1,7 @@
+src-link packages ../../feeds/openwrt-packages-bb
+src-link fastd ../../feeds/fastd
+src-link luci ../../feeds/luci
+src-link config_mode ../../feeds/config-mode
+src-link routing ../../feeds/openwrt-routing
+src-link ath9k_watchdog ../../feeds/ath9k_watchdog
+

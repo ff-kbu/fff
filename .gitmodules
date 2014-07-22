@@ -19,3 +19,9 @@
 [submodule "feeds/ath9k-watchdog"]
 	path = feeds/ath9k-watchdog
 	url = https://github.com/ff-kbu/ath9k-watchdog.git
+[submodule "openwrt-bb"]
+	path = openwrt-bb
+	url = https://github.com/ff-kbu/openwrt-bb.git
+[submodule "feeds/openwrt-packages-bb"]
+	path = feeds/openwrt-packages-bb
+	url = https://github.com/ff-kbu/openwrt-bb-packages.git
