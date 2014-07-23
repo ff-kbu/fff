@@ -2,10 +2,10 @@
 
 mkdir -p deploy
 rm -rf deploy/*
-mkdir -p deploy/untested/aa
-mkdir -p deploy/untested/bb
-mkdir -p deploy/packages/aa
-mkdir -p deploy/packages/aa
+mkdir -p deploy/untested/attitude_adjustment
+mkdir -p deploy/untested/barrier_breaker
+mkdir -p deploy/packages/attitude_adjustment
+mkdir -p deploy/packages/barrier_breaker
 
 echo '##'
 echo '## Copy Attitude Adjustment'
@@ -17,13 +17,13 @@ do
   f=${f/-squashfs-factory.bin/} #Remove annoying suffix
   f=${f/-squashfs-sysupgrade.bin/-upgrade} #Remove annoying suffix
   f=${f/openwrt-ar71xx-generic/ff-kbu} #Change prefix
-  cp -a $file deploy/untested/aa/$f-${BUILD_ID}aa.bin
+  cp -a $file deploy/untested/attitude_adjustment/$f-${BUILD_ID}a.bin
 done
-cp -a openwrt-aa/bin/ar71xx/packages deploy/packages/aa
+cp -a openwrt-aa/bin/ar71xx/packages deploy/packages/attitude_adjustment
 
 ## Pick tested AA firmware
-cp deploy/untested/aa/{*741*,*1043*,*wr740n*} deploy/
-cp deploy/untested/aa/{*wdr3600*,*wdr4300*,*842*,*841*} deploy/
+cp deploy/untested/attitude_adjustment/{*741*,*1043*,*wr740n*} deploy/
+cp deploy/untested/attitude_adjustment/{*wdr3600*,*wdr4300*,*842*,*841*} deploy/
 
 
 # Copy Barrier Breaker
@@ -37,9 +37,9 @@ do
   f=${f/-squashfs-factory.bin/} #Remove annoying suffix
   f=${f/-squashfs-sysupgrade.bin/-upgrade} #Remove annoying suffix
   f=${f/openwrt-ar71xx-generic/ff-kbu} #Change prefix
-  cp -a $file deploy/untested/bb/$f-${BUILD_ID}bb.bin
+  cp -a $file deploy/untested/barrier_breaker/$f-${BUILD_ID}b.bin
 done
-cp -a openwrt-bb/bin/ar71xx/packages deploy/packages/bb
+cp -a openwrt-bb/bin/ar71xx/packages deploy/packages/barrier_breaker
 
 ## Pick tested AA firmware
-cp deploy/untested/bb/{*841*v9*,*842*v2*,*wdr3500*} deploy/
+cp deploy/untested/barrier_breaker/{*841*v9*,*842*v2*,*wdr3500*} deploy/
