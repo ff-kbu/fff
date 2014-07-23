@@ -11,4 +11,5 @@ scripts/feeds install -a
 cp ../configs/config-bb .config
 
 # Version-Strings codieren
-make CONFIG_VERSION_NUMBER="${BUILD_ID} (ff-kbu-master-bb-continuous)" -j8
+make CONFIG_VERSION_NUMBER="${BUILD_ID} (ff-kbu-master-bb-continuous)" V=99
+
