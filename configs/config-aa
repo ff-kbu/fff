@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # OpenWrt version: Attitude Adjustment (unknown)
-# Tue Jul 22 12:31:45 2014
+# Wed Jul 30 20:30:01 2014
 #
 CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_ppc40x is not set
@@ -1458,9 +1458,141 @@ CONFIG_PACKAGE_ip6tables=y
 #
 
 #
+# 1. Collections
+#
+# CONFIG_PACKAGE_luci is not set
+# CONFIG_PACKAGE_luci-ssl is not set
+
+#
+# 2. Modules
+#
+CONFIG_PACKAGE_luci-mod-admin-core=y
+# CONFIG_PACKAGE_luci-mod-admin-full is not set
+# CONFIG_PACKAGE_luci-mod-failsafe is not set
+# CONFIG_PACKAGE_luci-mod-freifunk is not set
+# CONFIG_PACKAGE_luci-mod-rpc is not set
+
+#
 # 3. Applications
 #
+# CONFIG_PACKAGE_luci-app-ahcp is not set
 # CONFIG_PACKAGE_luci-app-bmx6 is not set
+# CONFIG_PACKAGE_luci-app-commands is not set
+# CONFIG_PACKAGE_luci-app-ddns is not set
+# CONFIG_PACKAGE_luci-app-diag-core is not set
+# CONFIG_PACKAGE_luci-app-diag-devinfo is not set
+# CONFIG_PACKAGE_luci-app-firewall is not set
+# CONFIG_PACKAGE_luci-app-freifunk-diagnostics is not set
+# CONFIG_PACKAGE_luci-app-freifunk-policyrouting is not set
+# CONFIG_PACKAGE_luci-app-freifunk-widgets is not set
+# CONFIG_PACKAGE_luci-app-hd-idle is not set
+# CONFIG_PACKAGE_luci-app-ltqtapi is not set
+# CONFIG_PACKAGE_luci-app-meshwizard is not set
+# CONFIG_PACKAGE_luci-app-mmc-over-gpio is not set
+# CONFIG_PACKAGE_luci-app-ntpc is not set
+# CONFIG_PACKAGE_luci-app-olsr is not set
+# CONFIG_PACKAGE_luci-app-p910nd is not set
+# CONFIG_PACKAGE_luci-app-pbx is not set
+# CONFIG_PACKAGE_luci-app-polipo is not set
+# CONFIG_PACKAGE_luci-app-qos is not set
+# CONFIG_PACKAGE_luci-app-radvd is not set
+# CONFIG_PACKAGE_luci-app-samba is not set
+# CONFIG_PACKAGE_luci-app-siitwizard is not set
+# CONFIG_PACKAGE_luci-app-splash is not set
+# CONFIG_PACKAGE_luci-app-statistics is not set
+# CONFIG_PACKAGE_luci-app-tinyproxy is not set
+# CONFIG_PACKAGE_luci-app-transmission is not set
+# CONFIG_PACKAGE_luci-app-upnp is not set
+# CONFIG_PACKAGE_luci-app-vnstat is not set
+# CONFIG_PACKAGE_luci-app-voice-core is not set
+# CONFIG_PACKAGE_luci-app-watchcat is not set
+# CONFIG_PACKAGE_luci-app-wol is not set
+# CONFIG_PACKAGE_luci-app-wshaper is not set
+
+#
+# 4. Themes
+#
+CONFIG_PACKAGE_luci-theme-base=y
+CONFIG_PACKAGE_luci-theme-bootstrap=y
+# CONFIG_PACKAGE_luci-theme-freifunk-bno is not set
+# CONFIG_PACKAGE_luci-theme-freifunk-generic is not set
+# CONFIG_PACKAGE_luci-theme-openwrt is not set
+
+#
+# 5. Translations
+#
+# CONFIG_PACKAGE_luci-i18n-catalan is not set
+# CONFIG_PACKAGE_luci-i18n-chinese is not set
+CONFIG_PACKAGE_luci-i18n-english=y
+# CONFIG_PACKAGE_luci-i18n-french is not set
+# CONFIG_PACKAGE_luci-i18n-german is not set
+# CONFIG_PACKAGE_luci-i18n-greek is not set
+# CONFIG_PACKAGE_luci-i18n-hebrew is not set
+# CONFIG_PACKAGE_luci-i18n-hungarian is not set
+# CONFIG_PACKAGE_luci-i18n-italian is not set
+# CONFIG_PACKAGE_luci-i18n-japanese is not set
+# CONFIG_PACKAGE_luci-i18n-malay is not set
+# CONFIG_PACKAGE_luci-i18n-norwegian is not set
+# CONFIG_PACKAGE_luci-i18n-polish is not set
+# CONFIG_PACKAGE_luci-i18n-portuguese is not set
+# CONFIG_PACKAGE_luci-i18n-portuguese-brazilian is not set
+# CONFIG_PACKAGE_luci-i18n-romanian is not set
+# CONFIG_PACKAGE_luci-i18n-russian is not set
+# CONFIG_PACKAGE_luci-i18n-spanish is not set
+# CONFIG_PACKAGE_luci-i18n-ukrainian is not set
+# CONFIG_PACKAGE_luci-i18n-vietnamese is not set
+
+#
+# 6. Protocols
+#
+CONFIG_PACKAGE_luci-proto-core=y
+# CONFIG_PACKAGE_luci-proto-ipv6 is not set
+# CONFIG_PACKAGE_luci-proto-ppp is not set
+# CONFIG_PACKAGE_luci-proto-relay is not set
+
+#
+# 7. Server Interfaces
+#
+CONFIG_PACKAGE_luci-sgi-cgi=y
+# CONFIG_PACKAGE_luci-sgi-uhttpd is not set
+
+#
+# 8. Libraries
+#
+CONFIG_PACKAGE_luci-lib-core=y
+# CONFIG_PACKAGE_luci-lib-core_compile is not set
+# CONFIG_PACKAGE_luci-lib-core_stripped is not set
+# CONFIG_PACKAGE_luci-lib-core_srcdiet is not set
+CONFIG_PACKAGE_luci-lib-core_source=y
+# CONFIG_PACKAGE_luci-lib-fastindex is not set
+# CONFIG_PACKAGE_luci-lib-httpclient is not set
+# CONFIG_PACKAGE_luci-lib-ipkg is not set
+# CONFIG_PACKAGE_luci-lib-json is not set
+# CONFIG_PACKAGE_luci-lib-luaneightbl is not set
+# CONFIG_PACKAGE_luci-lib-lucid is not set
+# CONFIG_PACKAGE_luci-lib-lucid-http is not set
+# CONFIG_PACKAGE_luci-lib-lucid-rpc is not set
+CONFIG_PACKAGE_luci-lib-nixio=y
+CONFIG_PACKAGE_luci-lib-nixio_notls=y
+# CONFIG_PACKAGE_luci-lib-nixio_axtls is not set
+# CONFIG_PACKAGE_luci-lib-nixio_cyassl is not set
+# CONFIG_PACKAGE_luci-lib-nixio_openssl is not set
+# CONFIG_PACKAGE_luci-lib-px5g is not set
+CONFIG_PACKAGE_luci-lib-sys=y
+CONFIG_PACKAGE_luci-lib-web=y
+
+#
+# 9. Freifunk
+#
+# CONFIG_PACKAGE_freifunk-common is not set
+CONFIG_PACKAGE_config-mode=y
+# CONFIG_PACKAGE_freifunk-firewall is not set
+# CONFIG_PACKAGE_freifunk-p2pblock is not set
+# CONFIG_PACKAGE_freifunk-policyrouting is not set
+# CONFIG_PACKAGE_freifunk-watchdog is not set
+# CONFIG_PACKAGE_luci-mod-freifunk-community is not set
+# CONFIG_PACKAGE_meshwizard is not set
+# CONFIG_PACKAGE_remote-update is not set
 
 #
 # Kernel modules
