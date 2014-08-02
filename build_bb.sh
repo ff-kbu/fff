@@ -12,5 +12,5 @@ cp ../configs/config-bb .config
 
 # Version-Strings codieren
 make clean
-make CONFIG_VERSION_NUMBER="${BUILD_ID} (ff-kbu-master-bb-continuous)" -j 8
+make CONFIG_VERSION_NUMBER="${BUILD_ID} (ff-kbu-master-bb-continuous)" V=99
 
