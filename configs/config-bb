@@ -3425,8 +3425,8 @@ CONFIG_PACKAGE_luci-mod-admin-core=y
 #
 # 4. Themes
 #
-# CONFIG_PACKAGE_luci-theme-base is not set
-# CONFIG_PACKAGE_luci-theme-bootstrap is not set
+CONFIG_PACKAGE_luci-theme-base=y
+CONFIG_PACKAGE_luci-theme-bootstrap=y
 # CONFIG_PACKAGE_luci-theme-freifunk-bno is not set
 # CONFIG_PACKAGE_luci-theme-freifunk-generic is not set
 # CONFIG_PACKAGE_luci-theme-openwrt is not set
@@ -3438,7 +3438,7 @@ CONFIG_PACKAGE_luci-mod-admin-core=y
 # CONFIG_PACKAGE_luci-i18n-chinese is not set
 CONFIG_PACKAGE_luci-i18n-english=y
 # CONFIG_PACKAGE_luci-i18n-french is not set
-# CONFIG_PACKAGE_luci-i18n-german is not set
+CONFIG_PACKAGE_luci-i18n-german=y
 # CONFIG_PACKAGE_luci-i18n-greek is not set
 # CONFIG_PACKAGE_luci-i18n-hebrew is not set
 # CONFIG_PACKAGE_luci-i18n-hungarian is not set
