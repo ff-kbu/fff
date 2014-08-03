@@ -5,7 +5,7 @@
 
 version=$(cat /etc/freifunk_version)
 mac=$(uci get freifunk.@node[0].nodeid)
-machine=$(awk 'BEGIN{FS="[ \t]+:[ \t]"} /machine/ {print $2}' /proc/cpuinfo)
+machine=$(cat /tmp/sysinfo/model)
 
 echo $version | /usr/sbin/alfred -s 94
 echo $mac |  /usr/sbin/alfred -s 192
