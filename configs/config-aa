@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # OpenWrt version: Attitude Adjustment (unknown)
-# Sun Aug  3 22:26:38 2014
+# Sun Aug  3 23:46:32 2014
 #
 CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_ppc40x is not set
@@ -2379,7 +2379,7 @@ CONFIG_PACKAGE_kmod-zd1211rw=m
 # CONFIG_PACKAGE_uucp is not set
 # CONFIG_PACKAGE_vsftpd is not set
 # CONFIG_PACKAGE_wget is not set
-CONFIG_PACKAGE_wget-nossl=y
+# CONFIG_PACKAGE_wget-nossl is not set
 # CONFIG_PACKAGE_wput is not set
 # CONFIG_PACKAGE_yafc is not set
 # CONFIG_PACKAGE_zstream is not set
