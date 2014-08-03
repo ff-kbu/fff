@@ -11,10 +11,10 @@ scripts/feeds install -a
 cp ../configs/config-bb .config
 
 # Version-Strings codieren
-make clean
+#make clean
 if [[ -z "$VERSION" ]]; then
 	VERSION=$BUILD_ID
 fi
 
-make CONFIG_VERSION_NUMBER="${VERSION}"V=99
+make CONFIG_VERSION_NUMBER="${VERSION}" -j 8
 
