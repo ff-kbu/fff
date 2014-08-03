@@ -3,8 +3,6 @@
 # Data will vanish after 10min by design of alfred
 # Thus this script is be called every 5 minutes
 
-/etc/init.d/alfred restart
-
 version=$(cat /etc/freifunk_version)
 mac=$(uci get freifunk.@node[0].nodeid)
 machine=$(cat /tmp/sysinfo/model)
