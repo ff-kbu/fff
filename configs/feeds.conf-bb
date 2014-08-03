@@ -4,4 +4,4 @@ src-link luci ../../feeds/luci
 src-link config_mode ../../feeds/config-mode
 src-link routing ../../feeds/openwrt-routing
 src-link ath9k_watchdog ../../feeds/ath9k_watchdog
-src-link openwrt_community_packages ../../openwrt-community-packages-bb
+src-link openwrt_community_packages ../../feeds/openwrt-community-packages-bb
