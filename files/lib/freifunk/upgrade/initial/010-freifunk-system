@@ -1,4 +1,6 @@
 #!/bin/sh
+/etc/init.d/haveged enable
+/etc/init.d/haveged start
 
 . /lib/ar71xx.sh
 . /lib/freifunk/lib_node.sh
