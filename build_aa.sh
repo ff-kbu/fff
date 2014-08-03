@@ -17,6 +17,6 @@ if [[ -z "$VERSION" ]]; then
 	VERSION=$BUILD_ID
 fi
         
-make CONFIG_VERSION_NUMBER="${VERSION}" -j 16     
+make CONFIG_VERSION_NUMBER="${VERSION}" V=99
         
  
