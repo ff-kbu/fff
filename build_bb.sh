@@ -12,7 +12,7 @@ cp ../configs/config-bb .config
 
 # Version-Strings codieren
 make clean
-if [[ -z "$VERSION" ]]
+if [[ -z "$VERSION" ]]; then
 	VERSION=$BUILD_ID
 fi
 

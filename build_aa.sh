@@ -13,7 +13,7 @@ cp ../configs/config-aa .config
 # Version-Strings codieren
 #make CONFIG_VERSION_NUMBER="${BUILD_ID} (ff-kbu-master-aa-continuous)" -j16
 make clean
-if [[ -z "$VERSION" ]]
+if [[ -z "$VERSION" ]]; then
 	VERSION=$BUILD_ID
 fi
         
