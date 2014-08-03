@@ -7,6 +7,9 @@ mkdir -p deploy/untested/barrier_breaker
 mkdir -p deploy/packages/attitude_adjustment
 mkdir -p deploy/packages/barrier_breaker
 
+if [[ -z "$VERSION" ]]; then
+  VERSION="${BUILD_ID}"
+fi
 echo '##'
 echo '## Copy Attitude Adjustment'
 echo '##'
@@ -17,7 +20,7 @@ do
   f=${f/-squashfs-factory.bin/} #Remove annoying suffix
   f=${f/-squashfs-sysupgrade.bin/-upgrade} #Remove annoying suffix
   f=${f/openwrt-ar71xx-generic/ff-kbu} #Change prefix
-  cp -a $file deploy/untested/attitude_adjustment/$f-${BUILD_ID}a.bin
+  cp -a $file deploy/untested/attitude_adjustment/$f-${VERSION}a.bin
 done
 cp -a openwrt-aa/bin/ar71xx/packages deploy/packages/attitude_adjustment
 
@@ -37,7 +40,7 @@ do
   f=${f/-squashfs-factory.bin/} #Remove annoying suffix
   f=${f/-squashfs-sysupgrade.bin/-upgrade} #Remove annoying suffix
   f=${f/openwrt-ar71xx-generic/ff-kbu} #Change prefix
-  cp -a $file deploy/untested/barrier_breaker/$f-${BUILD_ID}b.bin
+  cp -a $file deploy/untested/barrier_breaker/$f-${VERSION}b.bin
 done
 cp -a openwrt-bb/bin/ar71xx/packages deploy/packages/barrier_breaker
 

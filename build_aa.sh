@@ -14,9 +14,9 @@ cp ../configs/config-aa .config
 #make CONFIG_VERSION_NUMBER="${BUILD_ID} (ff-kbu-master-aa-continuous)" -j16
 #make clean
 if [[ -z "$VERSION" ]]; then
-	VERSION=$BUILD_ID
+	VERSION="${BUILD_ID}"
 fi
-        
-make CONFIG_VERSION_NUMBER="${VERSION}" -j 8
+echo "${VERSION}a" > files/etc/freifunk_version        
+make CONFIG_VERSION_NUMBER="${VERSION}a" -j 8
         
  
