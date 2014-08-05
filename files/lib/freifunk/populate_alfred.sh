@@ -5,8 +5,13 @@
 
 version=$(cat /etc/freifunk_version)
 mac=$(uci get freifunk.@node[0].nodeid)
+machine=$(cat /tmp/sysinfo/model)
 
 echo $version | /usr/sbin/alfred -s 94
 echo $mac |  /usr/sbin/alfred -s 192
+echo $machine | /usr/sbin/alfred -s 110
 
-
+. /lib/functions.sh
+. /lib/ar71xx.sh
+tp_model=$(tplink_get_hwid)
+echo $tp_model | /usr/sbin/alfred -s 158
