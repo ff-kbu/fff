@@ -6,7 +6,7 @@
 local lan_ifname="$(uci get network.lan.ifname)"
 local board="$(ar71xx_board_name)"
 local wan_ifname="$(uci get network.wan.ifname)"
-
+local main_mac="$(get_main_address)"
 
 uci -q batch <<EOF
 delete network.lan
@@ -30,7 +30,13 @@ else
 		uci set network.freifunk.ifname="$lan_ifname bat0"
 fi
 
+
 uci -q batch <<EOF
+set network.bat0='interface'
+set network.bat0.proto='none'
+set network.bat0.ifname='bat0'
+set network.bat0.macaddr='${main_mac}'
+
 set network.freifunk.type='bridge'
 set network.freifunk.proto='none'
 set network.freifunk.auto='1'
