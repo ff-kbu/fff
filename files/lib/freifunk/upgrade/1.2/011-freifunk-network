@@ -1,0 +1,23 @@
+#!/bin/sh
+
+
+####
+#### Adjust bat0's mac
+####
+
+. /lib/ar71xx.sh
+. /lib/freifunk/lib_node.sh
+
+local main_mac="$(get_main_address)"
+
+uci -q batch <<EOF
+set network.bat0='interface'
+set network.bat0.proto='none'
+set network.bat0.ifname='bat0'
+set network.bat0.macaddr='${main_mac}'
+
+EOF
+
+
+
+uci commit network
