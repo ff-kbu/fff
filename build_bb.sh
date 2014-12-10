@@ -12,10 +12,10 @@ cp ../configs/config-bb .config
 
 # Version-Strings codieren
 #make clean
-if [[ -z "$VERSION" ]]; then
+if [ -z "$VERSION" ]; then
 	VERSION=$BUILD_ID
 fi
 
 echo "${VERSION}" > files/etc/freifunk_version
-make CONFIG_VERSION_NUMBER="${VERSION}" -j 8
+make CONFIG_VERSION_NUMBER="${VERSION}" V=99 
 

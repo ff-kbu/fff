@@ -13,10 +13,10 @@ cp ../configs/config-aa .config
 # Version-Strings codieren
 #make CONFIG_VERSION_NUMBER="${BUILD_ID} (ff-kbu-master-aa-continuous)" -j16
 #make clean
-if [[ -z "$VERSION" ]]; then
+if [ -z "$VERSION" ]; then
 	VERSION="${BUILD_ID}"
 fi
 echo "${VERSION}-legacy" > files/etc/freifunk_version        
-make CONFIG_VERSION_NUMBER="${VERSION}-legacy" -j 8
+make CONFIG_VERSION_NUMBER="${VERSION}-legacy" V=99
         
  
