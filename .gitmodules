@@ -25,6 +25,3 @@
 [submodule "feeds/openwrt-community-packages-bb"]
 	path = feeds/openwrt-community-packages-bb
 	url = https://github.com/ff-kbu/openwrt-community-packages-bb.git
-[submodule "openwrt-bb"]
-	path = openwrt-bb
-	url = git@github.com:ff-kbu/openwrt-bb-stable.git
