@@ -1,0 +1,3 @@
+key "f4aff2422921822102ed6e67807b0b5db334f04e071356d30fe6c927b8bb9839";
+remote ipv6 "vpn4.kbu.freifunk.net" port 10010;
+remote ipv4 "vpn4.kbu.freifunk.net" port 10010;
