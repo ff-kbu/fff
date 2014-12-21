@@ -1,12 +1,25 @@
 #!/bin/sh
 
-UPLOAD_URL=$1
+#ersteinmal warten, bis der Router komplett gestartet ist
+sleep 120
+
 KEY=`/etc/init.d/fastd show_key mesh_vpn`
 WGETC=`which wget`
 VERSION=$(cat /etc/freifunk_version)
 MAC=$(uci get freifunk.@node[0].nodeid)
+
 while [ 1 = 1 ]
 do
-        $WGETC "$UPLOAD_URL/upload_key?nodeid=${MAC}&_method=post&key=${KEY}&fw_version=${VERSION}" -O -  > /dev/null && break
-	sleep 30
+	c=1
+        #Und allen Supernodes den Key hochladen
+        while [ $c -le 8 ]
+        do
+        	UPLOAD_URL="http://fastd"$c".kbu.freifunk.net/fastd-upload"
+                $WGETC   "$UPLOAD_URL/upload_key?nodeid=${MAC}&_method=post&key=${KEY}&fw_version=${VERSION}" -O -
+                sleep 30
+                let c=$c+1
+        done
+        #Zwischen jeder neuen Runde erstmal 2 Minuten warten (wg. Traffic)
+        sleep 120
 done
+
