@@ -1,0 +1,4 @@
+#!/bin/sh
+cp /rom/etc/config/fastd /etc/config
+/etc/init.d/fastd restart
+

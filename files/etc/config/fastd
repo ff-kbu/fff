@@ -8,10 +8,12 @@ config fastd mesh_vpn
 
 	option syslog_level 'verbose'
 
-	list method 'salsa2012+gmac'
+	list method 'salsa2012+umac'
 	list method 'null'
 	option mode 'tap'
 	option secret 'generate'
 	
 	option interface 'mesh-vpn'
-	option mtu 1426
+	option mtu 1312
+	option secure_handshakes 1
+ 
