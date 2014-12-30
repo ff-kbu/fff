@@ -1,14 +1,14 @@
 #!/bin/sh
 	## Key-Upload
-        URL_1='http://vpn1.kbu.freifunk.net:8081/fastd-upload/'
-        URL_2='http://vpn2.kbu.freifunk.net:8081/fastd-upload/'
-        URL_3='http://vpn3.kbu.freifunk.net:8081/fastd-upload/'
-        URL_4='http://vpn4.kbu.freifunk.net:8081/fastd-upload/'
-        URL_5='http://vpn5.kbu.freifunk.net:8081/fastd-upload/'
-        URL_6='http://vpn6.kbu.freifunk.net:8081/fastd-upload/'
-        URL_7='http://vpn7.kbu.freifunk.net:8081/fastd-upload/'
-        URL_8='http://vpn8.kbu.freifunk.net:8081/fastd-upload/'
-	URL_9='http://vpn8.kbu.freifunk.net:8081/fastd-upload/'
+        URL_1='http://vpn1.kbu.freifunk.net/fastd-upload/'
+        URL_2='http://vpn2.kbu.freifunk.net/fastd-upload/'
+        URL_3='http://vpn3.kbu.freifunk.net/fastd-upload/'
+        URL_4='http://vpn4.kbu.freifunk.net/fastd-upload/'
+        URL_5='http://vpn5.kbu.freifunk.net/fastd-upload/'
+        URL_6='http://vpn6.kbu.freifunk.net/fastd-upload/'
+        URL_7='http://vpn7.kbu.freifunk.net/fastd-upload/'
+        URL_8='http://vpn8.kbu.freifunk.net/fastd-upload/'
+	URL_9='http://vpn8.kbu.freifunk.net/fastd-upload/'
 
         /lib/freifunk/mesh-vpn/upload_key_to_server $URL_1 &
         /lib/freifunk/mesh-vpn/upload_key_to_server $URL_2 &
