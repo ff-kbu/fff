@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # OpenWrt version: Attitude Adjustment (unknown)
-# Wed Jan  7 21:08:29 2015
+# Wed Jan  7 21:18:56 2015
 #
 CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_ppc40x is not set
@@ -3309,7 +3309,7 @@ CONFIG_PACKAGE_libncurses=m
 # CONFIG_PACKAGE_libnfc is not set
 # CONFIG_PACKAGE_libnfnetlink is not set
 # CONFIG_PACKAGE_libnids is not set
-# CONFIG_PACKAGE_libnl is not set
+CONFIG_PACKAGE_libnl=y
 CONFIG_PACKAGE_libnl-tiny=y
 # CONFIG_PACKAGE_libnmeap is not set
 # CONFIG_PACKAGE_libogg is not set
