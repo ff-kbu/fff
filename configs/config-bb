@@ -2935,6 +2935,7 @@ CONFIG_PACKAGE_alsa-lib=m
 # CONFIG_PACKAGE_libaudiofile is not set
 CONFIG_PACKAGE_libavahi=m
 CONFIG_PACKAGE_libavahi-client=m
+# CONFIG_PACKAGE_libavahi-compat-libdnssd is not set
 CONFIG_PACKAGE_libavahi-dbus-support=m
 # CONFIG_PACKAGE_libavl is not set
 # CONFIG_PACKAGE_libblkid is not set
@@ -2959,24 +2960,24 @@ CONFIG_PACKAGE_libdbus=m
 # CONFIG_PACKAGE_libevent2-openssl is not set
 # CONFIG_PACKAGE_libevent2-pthreads is not set
 # CONFIG_PACKAGE_libexif is not set
+CONFIG_PACKAGE_libexpat=y
 # CONFIG_PACKAGE_libexslt is not set
+# CONFIG_PACKAGE_libfaad2 is not set
 # CONFIG_PACKAGE_libffi is not set
+# CONFIG_PACKAGE_libffmpeg-full is not set
+# CONFIG_PACKAGE_libffmpeg-mini is not set
+# CONFIG_PACKAGE_libflac is not set
+# CONFIG_PACKAGE_libfreetype is not set
 # CONFIG_PACKAGE_libftdi is not set
 # CONFIG_PACKAGE_libftdi1 is not set
 # CONFIG_PACKAGE_libgcrypt is not set
 # CONFIG_PACKAGE_libgd is not set
+CONFIG_PACKAGE_libgdbm=m
 # CONFIG_PACKAGE_libgmp is not set
 # CONFIG_PACKAGE_libgpg-error is not set
 # CONFIG_PACKAGE_libhamlib is not set
 # CONFIG_PACKAGE_ibrcommon is not set
 # CONFIG_PACKAGE_ibrdtn is not set
-CONFIG_PACKAGE_libexpat=y
-# CONFIG_PACKAGE_libfaad2 is not set
-# CONFIG_PACKAGE_libffmpeg-full is not set
-# CONFIG_PACKAGE_libffmpeg-mini is not set
-# CONFIG_PACKAGE_libflac is not set
-# CONFIG_PACKAGE_libfreetype is not set
-CONFIG_PACKAGE_libgdbm=m
 # CONFIG_PACKAGE_libhttp-parser is not set
 # CONFIG_PACKAGE_libiconv is not set
 # CONFIG_PACKAGE_libiconv-full is not set
@@ -3505,6 +3506,7 @@ CONFIG_PACKAGE_avahi-utils=m
 #
 # Routing and Redirection
 #
+# CONFIG_PACKAGE_babel-pinger is not set
 # CONFIG_PACKAGE_babeld is not set
 # CONFIG_PACKAGE_babels is not set
 # CONFIG_PACKAGE_batmand is not set
@@ -3621,20 +3623,23 @@ CONFIG_PACKAGE_fastd=y
 #
 # CONFIG_FASTD_ENABLE_METHOD_CIPHER_TEST is not set
 CONFIG_FASTD_ENABLE_METHOD_COMPOSED_GMAC=y
+CONFIG_FASTD_ENABLE_METHOD_COMPOSED_UMAC=y
 CONFIG_FASTD_ENABLE_METHOD_GENERIC_GMAC=y
 # CONFIG_FASTD_ENABLE_METHOD_GENERIC_POLY1305 is not set
+CONFIG_FASTD_ENABLE_METHOD_GENERIC_UMAC=y
 CONFIG_FASTD_ENABLE_METHOD_NULL=y
 # CONFIG_FASTD_ENABLE_METHOD_XSALSA20_POLY1305 is not set
-# CONFIG_FASTD_ENABLE_CIPHER_AES128_CTR is not set
+CONFIG_FASTD_ENABLE_CIPHER_AES128_CTR=y
 CONFIG_FASTD_ENABLE_CIPHER_NULL=y
 # CONFIG_FASTD_ENABLE_CIPHER_SALSA20 is not set
 CONFIG_FASTD_ENABLE_CIPHER_SALSA2012=y
 CONFIG_FASTD_ENABLE_MAC_GHASH=y
+CONFIG_FASTD_ENABLE_MAC_UHASH=y
 # CONFIG_FASTD_WITH_CMDLINE_USER is not set
 # CONFIG_FASTD_WITH_CMDLINE_LOGGING is not set
 # CONFIG_FASTD_WITH_CMDLINE_OPERATION is not set
 # CONFIG_FASTD_WITH_CMDLINE_COMMANDS is not set
-# CONFIG_FASTD_WITH_VERIFY is not set
+# CONFIG_FASTD_WITH_DYNAMIC_PEERS is not set
 # CONFIG_PACKAGE_ipsec-tools is not set
 # CONFIG_PACKAGE_ocserv is not set
 # CONFIG_PACKAGE_openconnect is not set
