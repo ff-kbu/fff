@@ -45,12 +45,12 @@ set network.freifunk.dns='fdd3:5d16:b5dd::2'
 
 set network.mesh='interface'
 set network.mesh.proto='batadv'
-set network.mesh.mtu='1528'
+set network.mesh.mtu='1532'
 set network.mesh.mesh='bat0'
 
 set network.mesh5='interface'
 set network.mesh5.proto='batadv'
-set network.mesh5.mtu='1528'
+set network.mesh5.mtu='1532'
 set network.mesh5.mesh='bat0'
 
 set network.mesh_vpn='interface'
