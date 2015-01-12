@@ -4030,7 +4030,7 @@ CONFIG_PACKAGE_collectd=y
 # CONFIG_PACKAGE_collectd-mod-bind is not set
 # CONFIG_PACKAGE_collectd-mod-conntrack is not set
 # CONFIG_PACKAGE_collectd-mod-contextswitch is not set
-# CONFIG_PACKAGE_collectd-mod-cpu is not set
+CONFIG_PACKAGE_collectd-mod-cpu=y
 # CONFIG_PACKAGE_collectd-mod-csv is not set
 # CONFIG_PACKAGE_collectd-mod-curl is not set
 # CONFIG_PACKAGE_collectd-mod-df is not set
@@ -4047,7 +4047,7 @@ CONFIG_PACKAGE_collectd-mod-iwinfo=y
 # CONFIG_PACKAGE_collectd-mod-load is not set
 # CONFIG_PACKAGE_collectd-mod-logfile is not set
 # CONFIG_PACKAGE_collectd-mod-madwifi is not set
-# CONFIG_PACKAGE_collectd-mod-memory is not set
+CONFIG_PACKAGE_collectd-mod-memory=y
 CONFIG_PACKAGE_collectd-mod-network=y
 # CONFIG_PACKAGE_collectd-mod-nginx is not set
 # CONFIG_PACKAGE_collectd-mod-ntpd is not set
