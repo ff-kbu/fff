@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo '***'
 echo '*** Building Barrier Breaker in openwrt-bb'
 echo '***'
