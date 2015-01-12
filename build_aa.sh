@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo '***'
 echo '***  Building Attitude Adjustment in openwrt-aa '
 echo '***' 
