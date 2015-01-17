@@ -30,6 +30,7 @@ oldversion="$(cat "$KEEP_VERSION_FILE" 2>/dev/null)"
 	cd "$UPGRADE_DIR"
 
 	if [ -z "$oldversion" ]; then
+# Set initial configuration:
 		do_dir initial
 	else
 		local v
@@ -38,6 +39,7 @@ oldversion="$(cat "$KEEP_VERSION_FILE" 2>/dev/null)"
 			if [ "$v" = initial ]; then continue; fi
 
 			if newer_than "$v" "$oldversion"; then
+                                echo "$(date) Executing upgrade scripts at: $v" >> /etc/.upgrade-log.txt
 				do_dir "$v"
 			fi
 		done
