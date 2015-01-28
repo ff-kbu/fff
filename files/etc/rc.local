@@ -1,7 +1,7 @@
 #!/bin/sh
+. /lib/freifunk/lib_node.sh
 
-LEGACY=$(grep legacy /etc/freifunk_version)
-if [ $LEGACY ]; then
+if is_legacy ; then
         echo "1" > /proc/sys/net/ipv6/conf/br-wan/accept_ra
 fi
 
