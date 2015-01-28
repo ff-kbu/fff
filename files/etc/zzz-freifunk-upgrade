@@ -17,7 +17,7 @@ newer_than() {
 do_dir() {
 	local s
 	for s in "$1"/*; do 
-		echo "Executing $s" >> /etc/.upgrade-log.txt
+		echo "$(date): executing $s" >> /etc/.upgrade-log.txt
 		"$s >> /etc/.upgrade-log.txt 2>> /etc/.upgrade-log.txt"; 
 	done
 }
@@ -26,7 +26,7 @@ do_dir() {
 version="$(cat "$VERSION_FILE")"
 
 oldversion="$(cat "$KEEP_VERSION_FILE" 2>/dev/null)"
-echo "Upgrading from $oldversion to $version" >> /etc/.upgrade-log.txt
+echo "$(date): Upgrading from $oldversion to $version" >> /etc/.upgrade-log.txt
 
 (
 	cd "$UPGRADE_DIR"
@@ -41,7 +41,7 @@ echo "Upgrading from $oldversion to $version" >> /etc/.upgrade-log.txt
 			if [ "$v" = initial ]; then continue; fi
 
 			if newer_than "$v" "$oldversion"; then
-                                echo "$(date) Executing upgrade scripts at: $v" >> /etc/.upgrade-log.txt
+                                echo "$(date): Executing upgrade scripts at: $v" >> /etc/.upgrade-log.txt
 				do_dir "$v"
 			fi
 		done
