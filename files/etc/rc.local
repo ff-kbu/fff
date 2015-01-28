@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # No Routed IPv6 on uplink
 echo "1" > /proc/sys/net/ipv6/conf/br-wan/accept_ra
 
