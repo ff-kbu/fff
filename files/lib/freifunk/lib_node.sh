@@ -21,6 +21,12 @@ get_node_id(){
         echo ${macaddr//:/}
 }
 
+# Legacy Firmware running Attitude-Adjustment?
+is_legacy(){ 
+	grep legacy /etc/freifunk_version
+}
+
+
 # Dual wifi? yes / no
 # More than two devies => dual wifi, too.
 # UNDEFINED, IF WIFI IS PRESENT!
