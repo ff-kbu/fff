@@ -10,7 +10,6 @@ local main_mac="$(get_main_address)"
 
 uci -q batch <<EOF
 delete network.lan
-delete network.wan6
 
 set network.wan='interface'
 set network.wan.type='bridge'
@@ -60,7 +59,6 @@ EOF
 
 if [ ! is_legacy ];then 
 	uci set set network.freifunk.proto='dhcpv6'
-	uci commit network
 fi
 
 
