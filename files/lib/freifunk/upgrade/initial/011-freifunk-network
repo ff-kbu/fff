@@ -15,7 +15,6 @@ delete network.wan6
 set network.wan='interface'
 set network.wan.type='bridge'
 set network.wan.proto='dhcp'
-set network.wan.accept_ra='0'
 set network.wan.auto='1'
 
 set network.freifunk='interface'
@@ -40,7 +39,6 @@ set network.bat0.macaddr='${main_mac}'
 set network.freifunk.type='bridge'
 set network.freifunk.proto='none'
 set network.freifunk.auto='1'
-set network.freifunk.accept_ra='1'
 set network.freifunk.dns='fdd3:5d16:b5dd::2'
 
 set network.mesh='interface'
@@ -59,6 +57,11 @@ set network.mesh_vpn.proto='batadv'
 set network.mesh_vpn.mesh='bat0'
 
 EOF
+
+if [ ! is_legacy ];then 
+	uci set set network.freifunk.proto='dhcpv6'
+	uci commit network
+fi
 
 
 local mainaddr=$(get_main_address)
