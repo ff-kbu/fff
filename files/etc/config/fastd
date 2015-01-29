@@ -7,12 +7,12 @@ config fastd mesh_vpn
 	list config_peer_dir '/etc/fastd/mesh-vpn/peers'
 
 	option syslog_level 'verbose'
-
+	option bind 'bind any:10000 interface "br-wan"'
 	list method 'salsa2012+umac'
 	list method 'null'
 	option mode 'tap'
 	option secret 'generate'
-	
+
 	option interface 'mesh-vpn'
 	option mtu 1312
 	option secure_handshakes 1
