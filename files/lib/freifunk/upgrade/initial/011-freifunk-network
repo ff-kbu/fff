@@ -58,7 +58,20 @@ set network.mesh_vpn.mesh='bat0'
 EOF
 
 if [ ! is_legacy ];then 
-	uci set set network.freifunk.proto='dhcpv6'
+	uci -q batch <<EOF
+set network.wan6='interface'
+set network.wan6.ifname='br-wan'
+set network.wan6.proto='dhcpv6'
+
+set network.freifunk6='interface'
+set network.freifunk6.ifname='br-freifunk'
+set network.freifunk6.proto='none'
+set network.freifunk6.dns='fdd3:5d16:b5dd::2'
+
+
+
+EOF
+
 fi
 
 

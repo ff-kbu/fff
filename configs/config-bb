@@ -1841,7 +1841,7 @@ CONFIG_BUSYBOX_CONFIG_IP=y
 CONFIG_BUSYBOX_CONFIG_FEATURE_IP_ADDRESS=y
 CONFIG_BUSYBOX_CONFIG_FEATURE_IP_LINK=y
 CONFIG_BUSYBOX_CONFIG_FEATURE_IP_ROUTE=y
-# CONFIG_BUSYBOX_CONFIG_FEATURE_IP_TUNNEL is not set
+CONFIG_BUSYBOX_CONFIG_FEATURE_IP_TUNNEL=y
 CONFIG_BUSYBOX_CONFIG_FEATURE_IP_RULE=y
 # CONFIG_BUSYBOX_CONFIG_FEATURE_IP_SHORT_FORMS is not set
 # CONFIG_BUSYBOX_CONFIG_FEATURE_IP_RARE_PROTOCOLS is not set
@@ -1996,7 +1996,7 @@ CONFIG_PACKAGE_dropbear=y
 #
 # Configuration
 #
-CONFIG_DROPBEAR_ECC=y
+# CONFIG_DROPBEAR_ECC is not set
 # CONFIG_PACKAGE_ead is not set
 CONFIG_PACKAGE_firewall=y
 CONFIG_PACKAGE_fstools=y
@@ -2962,7 +2962,7 @@ CONFIG_PACKAGE_libdbus=m
 # CONFIG_PACKAGE_libevent2-openssl is not set
 # CONFIG_PACKAGE_libevent2-pthreads is not set
 # CONFIG_PACKAGE_libexif is not set
-CONFIG_PACKAGE_libexpat=y
+CONFIG_PACKAGE_libexpat=m
 # CONFIG_PACKAGE_libexslt is not set
 # CONFIG_PACKAGE_libfaad2 is not set
 # CONFIG_PACKAGE_libffi is not set
@@ -3211,10 +3211,10 @@ CONFIG_PACKAGE_luci-i18n-german=y
 #
 # 6. Protocols
 #
-# CONFIG_PACKAGE_luci-proto-3g is not set
-# CONFIG_PACKAGE_luci-proto-ipv6 is not set
+CONFIG_PACKAGE_luci-proto-3g=y
+CONFIG_PACKAGE_luci-proto-ipv6=y
 # CONFIG_PACKAGE_luci-proto-openconnect is not set
-# CONFIG_PACKAGE_luci-proto-ppp is not set
+CONFIG_PACKAGE_luci-proto-ppp=y
 # CONFIG_PACKAGE_luci-proto-relay is not set
 
 #
@@ -3228,7 +3228,7 @@ CONFIG_PACKAGE_luci-base_source=y
 # CONFIG_PACKAGE_luci-lib-httpclient is not set
 # CONFIG_PACKAGE_luci-lib-json is not set
 # CONFIG_PACKAGE_luci-lib-luaneightbl is not set
-CONFIG_PACKAGE_luci-lib-nixio=y
+# CONFIG_PACKAGE_luci-lib-nixio is not set
 CONFIG_PACKAGE_luci-lib-nixio_notls=y
 # CONFIG_PACKAGE_luci-lib-nixio_axtls is not set
 # CONFIG_PACKAGE_luci-lib-nixio_cyassl is not set
@@ -3772,7 +3772,7 @@ CONFIG_PACKAGE_ALFRED_BATHOSTS=y
 # CONFIG_PACKAGE_authsae is not set
 CONFIG_PACKAGE_batctl=y
 # CONFIG_PACKAGE_bmon is not set
-# CONFIG_PACKAGE_chat is not set
+CONFIG_PACKAGE_chat=y
 # CONFIG_PACKAGE_cshark is not set
 # CONFIG_PACKAGE_dhcpcd is not set
 # CONFIG_PACKAGE_dmapd is not set
@@ -3816,7 +3816,7 @@ CONFIG_PACKAGE_iw=y
 # CONFIG_PACKAGE_mac-telnet-server is not set
 # CONFIG_PACKAGE_map is not set
 # CONFIG_PACKAGE_map-t is not set
-# CONFIG_PACKAGE_mdns is not set
+CONFIG_PACKAGE_mdns=y
 # CONFIG_PACKAGE_memcached is not set
 # CONFIG_PACKAGE_minimalist-pcproxy is not set
 # CONFIG_PACKAGE_mosquitto is not set
@@ -4075,7 +4075,7 @@ CONFIG_PACKAGE_collectd-mod-ping=y
 # CONFIG_PACKAGE_collectd-mod-vmem is not set
 # CONFIG_PACKAGE_collectd-mod-wireless is not set
 # CONFIG_PACKAGE_collectd-mod-write-http is not set
-# CONFIG_PACKAGE_comgt is not set
+CONFIG_PACKAGE_comgt=y
 # CONFIG_PACKAGE_coreutils is not set
 # CONFIG_PACKAGE_cryptsetup is not set
 # CONFIG_PACKAGE_cryptsetup-openssl is not set
