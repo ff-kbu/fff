@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# No Routed IPv6 on uplink
+echo "1" > /proc/sys/net/ipv6/conf/br-wan/disable_ipv6
+
+exit 0;

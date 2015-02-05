@@ -8,7 +8,6 @@ KEEP_VERSION_FILE=/etc/.freifunk_version_keep
 
 UPGRADE_DIR=/lib/freifunk/upgrade
 
-
 newer_than() {
 	local old="$(printf '%s\n%s\n' "$1" "$2" | sort -n | head -n 1)"
 	test "$1" != "$old"
@@ -17,14 +16,17 @@ newer_than() {
 
 do_dir() {
 	local s
-	for s in "$1"/*; do "$s"; done
+	for s in "$1"/*; do 
+		echo "$(date): executing $s" >> /etc/.upgrade-log.txt
+		"$s >> /etc/.upgrade-log.txt 2>> /etc/.upgrade-log.txt"; 
+	done
 }
 
 
 version="$(cat "$VERSION_FILE")"
 
 oldversion="$(cat "$KEEP_VERSION_FILE" 2>/dev/null)"
-
+echo "$(date): Upgrading from $oldversion to $version" >> /etc/.upgrade-log.txt
 
 (
 	cd "$UPGRADE_DIR"
@@ -39,7 +41,7 @@ oldversion="$(cat "$KEEP_VERSION_FILE" 2>/dev/null)"
 			if [ "$v" = initial ]; then continue; fi
 
 			if newer_than "$v" "$oldversion"; then
-                                echo "$(date) Executing upgrade scripts at: $v" >> /etc/.upgrade-log.txt
+                                echo "$(date): Executing upgrade scripts at: $v" >> /etc/.upgrade-log.txt
 				do_dir "$v"
 			fi
 		done
