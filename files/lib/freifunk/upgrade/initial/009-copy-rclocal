@@ -1,0 +1,2 @@
+#!/bin/sh
+cp /rom/etc/rc.local /etc
