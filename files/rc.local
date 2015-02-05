@@ -2,6 +2,6 @@
 . /lib/freifunk/lib_node.sh
 
 if is_legacy ; then
-        echo "1" > /proc/sys/net/ipv6/conf/br-wan/accept_ra
+        echo "0" > /proc/sys/net/ipv6/conf/br-wan/accept_ra
 fi
 
