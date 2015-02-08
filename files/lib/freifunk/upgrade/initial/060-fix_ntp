@@ -1,0 +1,10 @@
+#!/bin/sh
+uci delete system.ntp.server
+uci add_list system.ntp.server='2a01:4f8:d13:4a85::2'
+uci add_list system.ntp.server='2a00:1828:2000:115::2'
+uci add_list system.ntp.server='2001:638:504:2000::33'
+uci add_list system.ntp.server='2a01:4f8:121:4e4:1:2:3:4'
+
+uci commit system
+ 
+echo "$(date) Fixed ntp server addresses." >> /etc/.upgrade-log.txt
