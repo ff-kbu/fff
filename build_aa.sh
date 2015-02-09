@@ -17,6 +17,6 @@ if [[ -z "$VERSION" ]]; then
 	VERSION="${BUILD_ID}"
 fi
 echo "${VERSION}a" > files/etc/freifunk_version        
-make CONFIG_VERSION_NUMBER="${VERSION}a" V=99
+make CONFIG_VERSION_NUMBER="${VERSION}AA" V=99
         
  
