@@ -20,13 +20,13 @@ do
   f=${f/-squashfs-factory.bin/} #Remove annoying suffix
   f=${f/-squashfs-sysupgrade.bin/-upgrade} #Remove annoying suffix
   f=${f/openwrt-ar71xx-generic/ff-kbu} #Change prefix
-  cp -a $file deploy/untested/attitude_adjustment/$f-${VERSION}AA.bin
+  cp -a $file deploy/untested/attitude_adjustment/$f-${VERSION}a.bin
 done
 cp -a openwrt-aa/bin/ar71xx/packages deploy/packages/attitude_adjustment
 
 ## Pick tested AA firmware
-#cp deploy/untested/attitude_adjustment/{*741*,*1043*,*wr740n*} deploy/
-#cp deploy/untested/attitude_adjustment/{*wdr3600*,*wdr4300*,*842*,*841*} deploy/
+cp deploy/untested/attitude_adjustment/{*741*,*1043*,*wr740n*} deploy/
+cp deploy/untested/attitude_adjustment/{*wdr3600*,*wdr4300*,*842*,*841*} deploy/
 
 
 # Copy Barrier Breaker
@@ -40,12 +40,9 @@ do
   f=${f/-squashfs-factory.bin/} #Remove annoying suffix
   f=${f/-squashfs-sysupgrade.bin/-upgrade} #Remove annoying suffix
   f=${f/openwrt-ar71xx-generic/ff-kbu} #Change prefix
-  cp -a $file deploy/untested/barrier_breaker/$f-${VERSION}.bin
+  cp -a $file deploy/untested/barrier_breaker/$f-${VERSION}b.bin
 done
 cp -a openwrt-bb/bin/ar71xx/packages deploy/packages/barrier_breaker
 
-## Pick tested BB firmware
-mv deploy/untested/barrier_breaker/{*wdr3500*} deploy/
-mv deploy/untested/barrier_breaker/{*741*,*1043*,*wr740n*} deploy/
-mv deploy/untested/barrier_breaker/{*wdr3600*,*wdr4300*,*842*,*841*} deploy/
-
+## Pick tested AA firmware
+cp deploy/untested/barrier_breaker/{*841*v9*,*842*v2*,*wdr3500*} deploy/
