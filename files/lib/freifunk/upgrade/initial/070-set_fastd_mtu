@@ -1,6 +1,6 @@
 #!/bin/sh
 uci set fastd.mesh_vpn.mtu=1312
-uci set fastd.mesh_vpn.bind='any:10000 interface "br-wan"'
+# uci set fastd.mesh_vpn.bind='any:10000 interface "br-wan"'
 uci delete fastd.mesh_vpn.method
 uci set fastd.mesh_vpn.method=salsa2012+umac
 uci commit fastd
